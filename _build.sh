@@ -3,11 +3,13 @@
 set -e
 
 # Variables
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$script_dir"
 dlurl="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar"
 publisher_jar="publisher.jar"
-input_cache_path="$(pwd)/input-cache/"
+input_cache_path="${script_dir}/input-cache/"
 skipPrompts=false
-upper_path="../"
+upper_path="${script_dir}/../"
 scriptdlroot="https://raw.githubusercontent.com/HL7/ig-publisher-scripts/main"
 build_bat_url="${scriptdlroot}/_build.bat"
 build_sh_url="${scriptdlroot}/_build.sh"
@@ -19,9 +21,15 @@ function check_jar_location() {
   elif [ -f "${upper_path}${publisher_jar}" ]; then
     jar_location="${upper_path}${publisher_jar}"
     echo "Found publisher.jar in parent folder"
+  elif [ -n "${FHIR_PUBLISHER_HOME:-}" ] && [ -f "${FHIR_PUBLISHER_HOME}/${publisher_jar}" ]; then
+    jar_location="${FHIR_PUBLISHER_HOME}/${publisher_jar}"
+    echo "Found publisher.jar in FHIR_PUBLISHER_HOME"
+  elif [ -n "${HOME:-}" ] && [ -f "${HOME}/.fhir/tools/publisher/${publisher_jar}" ]; then
+    jar_location="${HOME}/.fhir/tools/publisher/${publisher_jar}"
+    echo "Found publisher.jar in user FHIR tools"
   else
     jar_location="not_found"
-    echo "publisher.jar not found in input-cache or parent folder"
+    echo "publisher.jar not found in input-cache, parent folder, or user FHIR tools"
   fi
 }
 
@@ -75,6 +83,7 @@ function build_ig() {
     java -Dfile.encoding=UTF-8 -jar "$jar_location" -ig . "${args[@]}" "$@"
   else
     echo "publisher.jar not found. Please run update."
+    return 1
   fi
 }
 
@@ -84,6 +93,7 @@ function build_nosushi() {
     java -Dfile.encoding=UTF-8 -jar "$jar_location" -ig . -no-sushi "$@"
   else
     echo "publisher.jar not found. Please run update."
+    return 1
   fi
 }
 
@@ -92,6 +102,7 @@ function build_notx() {
     java -Dfile.encoding=UTF-8 -jar "$jar_location" -ig . -tx n/a "$@"
   else
     echo "publisher.jar not found. Please run update."
+    return 1
   fi
 }
 
