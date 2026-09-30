@@ -33,4 +33,4 @@ git push --set-upstream origin $CURRENT_VERSION_URL_FRIENDLY
 echo Request the FHIR IG auto-builder to deploy the release branch
 curl -X POST "https://us-central1-fhir-org-starter-project.cloudfunctions.net/ig-commit-trigger" \
   -H "Content-type: application/json" \
-  --data "{\"ref\": \"refs/heads/$CURRENT_VERSION_URL_FRIENDLY\", \"repository\": {\"full_name\": \"ShashiPA26/wcto-fhir-ig\"}}"
+  --data "{\"ref\": \"refs/heads/$CURRENT_VERSION_URL_FRIENDLY\", \"repository\": {\"full_name\": \"tewhatuora/wcto-fhir-ig\"}}"
