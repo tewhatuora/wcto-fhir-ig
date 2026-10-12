@@ -4,7 +4,7 @@ The B4 School Check (B4SC) is the initial Well Child Tamariki Ora use case suppo
 
 B4SC is the final universal WCTO contact and is generally delivered around the age of four.
 
-## B4SC Service Model
+### B4SC Service Model
 
 ```text
 B4 School Check Service

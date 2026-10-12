@@ -4,7 +4,7 @@ This page describes the high-level workflow for digital Well Child Tamariki Ora 
 
 B4SC is the initial use case.
 
-## High-Level Workflow
+### High-Level Workflow
 
 ```text
 Health Service Definition

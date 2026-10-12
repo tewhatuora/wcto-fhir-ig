@@ -6,7 +6,7 @@ B4SC is the initial use case.
 
 Detailed API behaviour will be added as the WCTO API architecture and supported interactions are confirmed.
 
-## API Scope
+### API Scope
 
 The current WCTO integration model is expected to support:
 
@@ -22,7 +22,7 @@ The current WCTO integration model is expected to support:
 
 Appointment and booking management and referral workflow management are outside the current scope.
 
-## FHIR Version
+### FHIR Version
 
 This Implementation Guide uses:
 

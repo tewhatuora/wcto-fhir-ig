@@ -6,7 +6,7 @@ B4SC is the initial use case.
 
 These rules are preliminary and will be refined as programme, clinical and technical requirements are confirmed.
 
-## Eligibility
+### Eligibility
 
 For B4SC:
 
@@ -16,7 +16,7 @@ For B4SC:
 
 The detailed eligibility mechanism remains to be confirmed.
 
-## Cohort Generation
+### Cohort Generation
 
 FHIR `Group` is the current candidate for representing an eligible child cohort.
 
@@ -30,7 +30,7 @@ The following remain to be confirmed:
 - how demographic changes affect membership;
 - whether Group is the final FHIR representation.
 
-## Health Service Definition
+### Health Service Definition
 
 `PlanDefinition` may define the reusable WCTO health service.
 
@@ -50,7 +50,7 @@ For B4SC, the current working activities include:
 - Early Childhood Education Assessment;
 - Vision and Hearing.
 
-## Scheduled Health Event
+### Scheduled Health Event
 
 `CarePlan` may represent the scheduled or active WCTO health event for an individual child.
 
@@ -65,7 +65,7 @@ The CarePlan may provide context for:
 
 The rules for creation, activation and completion of the CarePlan remain to be confirmed.
 
-## Consent
+### Consent
 
 Consent should occur before the remaining B4SC assessment activities.
 
@@ -79,7 +79,7 @@ Potential representation includes:
 
 The final approach remains to be confirmed.
 
-## Assessment Ordering
+### Assessment Ordering
 
 After consent, the remaining B4SC assessments should generally be able to occur in any order.
 
@@ -92,7 +92,7 @@ These include:
 
 The IG should not impose additional sequencing unless a confirmed clinical or business requirement requires it.
 
-## Activity Tracking
+### Activity Tracking
 
 Required and outstanding WCTO activities may be represented using `Task`.
 
@@ -106,7 +106,7 @@ Each Task may contain:
 
 The detailed Task lifecycle remains to be confirmed.
 
-## Assignment
+### Assignment
 
 Assignment may occur at more than one level.
 
@@ -117,7 +117,7 @@ Potential representation includes:
 
 The relationship between provider nomination, CareTeam and Task ownership remains to be confirmed.
 
-## Assessment Completion
+### Assessment Completion
 
 An assessment may be considered completed when the relevant `QuestionnaireResponse` satisfies the programme-specific completion requirements.
 
@@ -130,7 +130,7 @@ Potential considerations include:
 
 The exact rules will be defined for each assessment.
 
-## Overall Event Completion
+### Overall Event Completion
 
 The overall WCTO health event may be considered complete when all required business conditions have been met.
 
@@ -145,7 +145,7 @@ Potential considerations include:
 
 The final completion rules remain to be confirmed.
 
-## Status Tracking
+### Status Tracking
 
 | Business Level | Potential FHIR Representation |
 |---|---|
@@ -156,7 +156,7 @@ The final completion rules remain to be confirmed.
 
 FHIR resource status should not automatically be assumed to represent programme-level business status without an agreed mapping.
 
-## Authoritative Data
+### Authoritative Data
 
 Where information is already available from an authoritative national source, the WCTO solution should avoid creating unnecessary duplicate records.
 
@@ -168,7 +168,7 @@ Examples include:
 
 The exact source-of-truth rules for individual data elements remain to be confirmed.
 
-## Out of Scope
+### Out of Scope
 
 The following are outside the current scope:
 
@@ -177,7 +177,7 @@ The following are outside the current scope:
 
 These activities may continue to be managed by provider systems or other existing services.
 
-## Open Questions
+### Open Questions
 
 The following rules require further confirmation:
 

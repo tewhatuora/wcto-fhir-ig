@@ -8,7 +8,7 @@ Not every actor or system will participate in every WCTO contact.
 
 ---
 
-## Child
+### Child
 
 The child receiving the WCTO service.
 
@@ -20,7 +20,7 @@ The child is the subject of the scheduled health event, assessment information a
 
 ---
 
-## Parent, Caregiver or Whānau
+### Parent, Caregiver or Whānau
 
 A parent, caregiver, guardian or other whānau member may participate in the WCTO service.
 
@@ -42,7 +42,7 @@ The detailed representation will depend on the requirements of the individual WC
 
 ---
 
-## Clinician
+### Clinician
 
 A healthcare professional may complete one or more WCTO activities.
 
@@ -62,7 +62,7 @@ Potential FHIR representation:
 
 ---
 
-## Provider Organisation
+### Provider Organisation
 
 The organisation responsible for delivering some or all of the WCTO service.
 
@@ -76,7 +76,7 @@ For example, one provider may complete a nursing assessment while another servic
 
 ---
 
-## Overall Service Responsibility
+### Overall Service Responsibility
 
 Responsibility for the overall scheduled health event may be represented using `CareTeam`.
 

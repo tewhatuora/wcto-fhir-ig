@@ -4,7 +4,7 @@ This page describes the current working FHIR information model for digital Well 
 
 B4SC is the initial use case.
 
-## High-Level Model
+### High-Level Model
 
 ```text
 Health Service

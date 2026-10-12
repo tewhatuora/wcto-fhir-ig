@@ -16,7 +16,7 @@ The guide describes:
 - the proposed FHIR information model;
 - guidance for API implementers.
 
-## Current Scope
+### Current Scope
 
 The current implementation model focuses on:
 
@@ -37,7 +37,7 @@ The following capabilities are outside the current scope:
 
 These capabilities may continue to be managed within provider systems or other existing services.
 
-## Initial FHIR Model
+### Initial FHIR Model
 
 The current working model is:
 
@@ -82,7 +82,7 @@ Participation
 
 The model is still being refined and should not be treated as a final API specification.
 
-## Guide Content
+### Guide Content
 
 1. [Business Context](business-context.html)
 2. [Business Rules](business-rules.html)
@@ -93,7 +93,7 @@ The model is still being refined and should not be treated as a final API specif
 7. [FHIR Information Model](fhir-model.html)
 8. [API Development Guide](api-development-guide.html)
 
-## Implementation Status
+### Implementation Status
 
 This Implementation Guide is under active development.
 

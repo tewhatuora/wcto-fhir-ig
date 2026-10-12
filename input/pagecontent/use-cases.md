@@ -4,18 +4,18 @@ This page describes the initial business use cases supported by the Well Child T
 
 B4SC is the initial use case.
 
-## Use Case 1 — Identify Child Due for B4SC
+### Use Case 1 — Identify Child Due for B4SC
 
-### Purpose
+#### Purpose
 
 Identify children approaching or reaching B4SC eligibility.
 
-### Potential FHIR Resources
+#### Potential FHIR Resources
 
 - `Patient`
 - `Group`
 
-### Flow
+#### Flow
 
 ```text
 Child population
