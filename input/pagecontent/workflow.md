@@ -1,9 +1,3 @@
-
-## `workflow.md`
-
-```markdown
-# WCTO Common Workflow
-
 ## Overview
 
 This page describes the high-level workflow for digital Well Child Tamariki Ora services.

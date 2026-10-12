@@ -1,9 +1,3 @@
-
-## `fhir-model.md`
-
-```markdown
-# WCTO FHIR Information Model
-
 ## Overview
 
 This page describes the current working FHIR information model for digital Well Child Tamariki Ora services.

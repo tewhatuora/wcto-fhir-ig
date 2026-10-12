@@ -1,5 +1,3 @@
-# WCTO Actors and Systems
-
 ## Overview
 
 This page identifies the people, organisations, provider systems and national digital services that may participate in Well Child Tamariki Ora (WCTO) digital workflows.

@@ -50,15 +50,25 @@ dependencies:
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
 #
-# pages:
-#   index.md:
-#     title: Example Home
-#   implementation.xml:
-#   examples.xml:
-#     title: Examples Overview
-#     simpleExamples.xml:
-#     complexExamples.xml:
-#
+pages:
+  index.md:
+    title: Well Child Tamariki Ora FHIR Implementation Guide
+  business-context.md:
+    title: Business Context
+  business-rules.md:
+    title: Business Rules
+  actors.md:
+    title: Actors and Systems
+  workflow.md:
+    title: Workflow
+  use-cases.md:
+    title: Use Cases
+  b4sc.md:
+    title: B4 School Check
+  fhir-model.md:
+    title: FHIR Information Model
+  api-development-guide.md:
+    title: API Development Guide
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide

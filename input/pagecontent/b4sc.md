@@ -1,9 +1,3 @@
-
-## `b4sc.md`
-
-```markdown
-# B4 School Check
-
 ## Overview
 
 The B4 School Check (B4SC) is the initial Well Child Tamariki Ora use case supported by this Implementation Guide.

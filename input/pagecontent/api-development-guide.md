@@ -1,9 +1,3 @@
-
-## `api-development-guide.md`
-
-```markdown
-# API Development Guide
-
 ## Overview
 
 This page provides implementation guidance for software vendors and developers integrating with Well Child Tamariki Ora digital services.

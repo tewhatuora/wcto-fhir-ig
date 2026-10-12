@@ -1,5 +1,3 @@
-# WCTO Business Rules
-
 ## Overview
 
 This page records the current working business rules for Well Child Tamariki Ora digital workflows.

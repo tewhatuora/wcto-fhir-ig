@@ -1,5 +1,3 @@
-# Well Child Tamariki Ora FHIR Implementation Guide
-
 ## Welcome
 
 This Implementation Guide defines the emerging FHIR-based integration model for digital Well Child Tamariki Ora (WCTO) services.

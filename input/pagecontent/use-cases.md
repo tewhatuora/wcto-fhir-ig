@@ -1,9 +1,3 @@
-
-## `use-cases.md`
-
-```markdown
-# WCTO Use Cases
-
 ## Overview
 
 This page describes the initial business use cases supported by the Well Child Tamariki Ora Implementation Guide.

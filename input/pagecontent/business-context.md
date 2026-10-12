@@ -1,5 +1,3 @@
-# Business Context
-
 ## Overview
 
 Well Child Tamariki Ora (WCTO) supports a range of child health activities delivered across different healthcare settings, workforces and provider organisations.
