@@ -1,26 +1,28 @@
-# wcto-fhir-ig
+# WCTO Digital Services IG Markdown pages
 
-FHIR Implementation Guide for Well Child Tamariki Ora services.
+This bundle contains polished narrative pages for the draft **WCTO Digital Services Implementation Guide**.
 
-## Build locally
+## Intended location
 
-Run the build from the repository root. On Windows, use PowerShell:
+Copy the Markdown files from `input/pagecontent/` into the corresponding folder in the FHIR Implementation Guide source repository.
 
-```powershell
-.\_build.bat
-```
+## Suggested page order
 
-On macOS/Linux, or from Git Bash/WSL on Windows:
+1. `index.md`
+2. `scope.md`
+3. `solution-overview.md`
+4. `architecture-principles.md`
+5. `actors-and-authorship.md`
+6. `access-and-authentication.md`
+7. `national-data-services.md`
+8. `wcto-api-services.md`
+9. `form-catalogue.md`
+10. `summary-catalogue.md`
+11. `information-population.md`
+12. `workflows.md`
+13. `assumptions-and-next-steps.md`
 
-```bash
-./_build.sh build
-```
+## Important
 
-The launcher uses `input-cache/publisher.jar` when present and also checks the
-parent directory and the standard user-level FHIR Publisher installation. To
-download or update the Publisher, run `./_build.sh update` (or
-`_updatePublisher.bat` on Windows).
+This content remains a draft for stakeholder review. Statements described as *draft*, *proposed*, *expected*, *potential*, or *to be confirmed* are not approved requirements. Detailed FHIR profiles, operations, security controls, terminology, scoring, and conformance requirements must be confirmed through the relevant design and governance processes.
 
-Build output and generated SUSHI resources are excluded from source control.
-The `input/pagecontent` files currently provide a buildable navigation shell;
-the WCTO-specific content and FHIR artifacts are still being developed.

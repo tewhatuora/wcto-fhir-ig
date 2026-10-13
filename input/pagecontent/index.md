@@ -1,102 +1,58 @@
-## Welcome
+---
+title: WCTO Digital Services Implementation Guide
+---
 
-This Implementation Guide defines the emerging FHIR-based integration model for digital Well Child Tamariki Ora (WCTO) services.
+# WCTO Digital Services Implementation Guide
 
-The B4 School Check (B4SC), also referred to as WCTO Core Contact 8, is the initial use case.
+**Status:** Draft v0.1  
+**Initial implementation:** Well Child Tamariki Ora Core Contact 8 — Before School Check (B4SC)
 
-The purpose of the guide is to establish reusable patterns that can support B4SC now and other WCTO contacts in the future.
+## Review status
 
-The guide describes:
+This Implementation Guide presents the proposed structure and initial content for internal stakeholder review. Items described as **draft**, **proposed**, **expected**, **potential**, or **to be confirmed** remain subject to business, clinical, architecture, privacy, security, information governance, licensing, and technical design approval.
 
-- the WCTO business context;
-- actors and participating systems;
-- business rules;
-- common workflow;
-- B4SC use cases;
-- the proposed FHIR information model;
-- guidance for API implementers.
+## Purpose
 
-### Current Scope
+This guide describes the national digital services, integration patterns, FHIR forms, information models, and summary services proposed to support delivery of Well Child Tamariki Ora (WCTO) contacts. The initial use case is Core Contact 8, commonly known as the Before School Check.
 
-The current implementation model focuses on:
+It provides a common reference for:
 
-- WCTO health service definition;
-- identification of eligible children;
-- scheduled child-specific health events;
-- required and outstanding activity tracking;
-- structured assessments;
-- participation and consent;
-- provider and activity assignment;
-- WCTO status tracking;
-- integration with relevant national digital services.
+- Health New Zealand product, architecture, delivery, and operational teams;
+- WCTO service providers and coordinators;
+- Practice Management System (PMS) and Electronic Medical Record (EMR) vendors;
+- FHIR form developers and implementers; and
+- National Data Service teams.
 
-The following capabilities are outside the current scope:
+## What this guide covers
 
-- appointment and booking management;
-- referral workflow management.
+This guide describes:
 
-These capabilities may continue to be managed within provider systems or other existing services.
+- existing National Data Services used within WCTO workflows;
+- proposed WCTO Digital Services;
+- FHIR forms and associated summaries;
+- form access, authorship, and completion patterns;
+- relevant information domains and candidate FHIR resources;
+- potential form-population sources; and
+- draft end-to-end information flows.
 
-### Initial FHIR Model
+## What this guide does not replace
 
-The current working model is:
+This guide does not reproduce detailed API specifications, FHIR profiles, operations, security requirements, or conformance requirements owned by other national services. Implementers must use the authoritative Implementation Guide for each referenced service.
 
-```text
-Health Service
-PlanDefinition
-      ↓
-Eligible Cohort
-Group
-      ↓
-Scheduled Health Event
-CarePlan
-      ↓
-Required / Outstanding Activities
-Task
-      ↓
-Structured Assessment
-Questionnaire
-      ↓
-QuestionnaireResponse
-      ↓
-Activity status updated
-      ↓
-Overall health event status updated
-```
+Detailed questionnaire content, value sets, profiles, extensions, validation rules, scoring logic, mappings, and implementation constraints will be confirmed through subsequent form design and technical specification.
 
-Supporting concepts include:
+## Guide contents
 
-```text
-CareTeam / Task.owner
-        ↓
-Assignment and responsibility
-```
+- [Scope](scope.html)
+- [Solution overview](solution-overview.html)
+- [Architectural principles](architecture-principles.html)
+- [Actors and authorship](actors-and-authorship.html)
+- [Access and authentication](access-and-authentication.html)
+- [National Data Services](national-data-services.html)
+- [WCTO API services](wcto-api-services.html)
+- [Form catalogue](form-catalogue.html)
+- [Summary catalogue](summary-catalogue.html)
+- [Information population](information-population.html)
+- [Workflows](workflows.html)
+- [Assumptions and next steps](assumptions-and-next-steps.html)
 
-and:
-
-```text
-Consent
-   ↓
-Participation
-```
-
-The model is still being refined and should not be treated as a final API specification.
-
-### Guide Content
-
-1. [Business Context](business-context.html)
-2. [Business Rules](business-rules.html)
-3. [Actors and Systems](actors.html)
-4. [Common Workflow](workflow.html)
-5. [Use Cases](use-cases.html)
-6. [B4 School Check](b4sc.html)
-7. [FHIR Information Model](fhir-model.html)
-8. [API Development Guide](api-development-guide.html)
-
-### Implementation Status
-
-This Implementation Guide is under active development.
-
-FHIR resource mappings, profiles, terminology, API interactions and business rules will continue to be refined as programme, clinical and technical requirements are confirmed.
-
-Where this guide identifies a resource as proposed or to be confirmed, implementers should not assume that the design is final.
