@@ -50,25 +50,47 @@ dependencies:
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
 #
+
 pages:
   index.md:
-    title: Well Child Tamariki Ora FHIR Implementation Guide
-  business-context.md:
-    title: Business Context
-  business-rules.md:
-    title: Business Rules
-  actors.md:
-    title: Actors and Systems
-  workflow.md:
-    title: Workflow
-  use-cases.md:
-    title: Use Cases
-  b4sc.md:
-    title: B4 School Check
-  fhir-model.md:
-    title: FHIR Information Model
-  api-development-guide.md:
-    title: API Development Guide
+    title: Home
+  scope.md:
+    title: Scope
+  solution-overview.md:
+    title: Solution Overview
+  architecture-principles.md:
+    title: Architectural Principles
+  actors-and-authorship.md:
+    title: Actors and Authorship
+  access-and-authentication.md:
+    title: Access and Authentication
+  national-data-services.md:
+    title: National Data Services
+  wcto-api-services.md:
+    title: WCTO API Services
+  form-catalogue.md:
+    title: Form Catalogue
+  summary-catalogue.md:
+    title: Summary Catalogue
+  information-population.md:
+    title: Information Population
+  terminology.md:
+    title: Terminology
+  workflows.md:
+    title: Workflows
+  security-and-privacy.md:
+    title: Security and Privacy
+  conformance.md:
+    title: Conformance
+  assumptions-and-next-steps.md:
+    title: Assumptions and Next Steps
+  history.md:
+    title: Version History
+  downloads.md:
+    title: Downloads
+  artifacts.html:
+    title: FHIR Artifacts
+
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -79,10 +101,14 @@ pages:
 # For parameters defined by the FHIR Tools IG see:
 # http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 #
-# parameters:
-#   excludettl: true
-#   validation: [allow-any-extensions, no-broken-links]
-#
+parameters:
+  show-inherited-invariants: false
+  bundle-references-resolve: false
+  default-contact: true
+  apply-version: false
+  default-version: true
+  display-warnings: true
+
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
 # │ as a simple structure where the YAML key is the menu item name and the value is the URL.       │
@@ -93,18 +119,31 @@ pages:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Business:
-    Business Context: business-context.html
-    Business Rules: business-rules.html
-    Actors & Systems: actors.html
-    Workflow: workflow.html
-    Use Cases: use-cases.html
-  Use Case:
-    B4 School Check: b4sc.html
-  API Development:
-    Developer Guide: api-development-guide.html
-    FHIR Information Model: fhir-model.html
-  FHIR Artifacts: artifacts.html
+  Overview:
+    Scope: scope.html
+    Solution Overview: solution-overview.html
+    Architectural Principles: architecture-principles.html
+    Actors and Authorship: actors-and-authorship.html
+  Access and Data:
+    Access and Authentication: access-and-authentication.html
+    National Data Services: national-data-services.html
+    Information Population: information-population.html
+    Terminology: terminology.html
+  Services and Forms:
+    WCTO API Services: wcto-api-services.html
+    Form Catalogue: form-catalogue.html
+    Summary Catalogue: summary-catalogue.html
+  Implementation:
+    Workflows: workflows.html
+    Security and Privacy: security-and-privacy.html
+    Conformance: conformance.html
+    FHIR Artifacts: artifacts.html
+  Support:
+    Assumptions and Next Steps: assumptions-and-next-steps.html
+    Version History: history.html
+    Downloads: downloads.html
+    FHIR R4 Specification: new-tab https://hl7.org/fhir/R4/
+
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
