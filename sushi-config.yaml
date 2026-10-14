@@ -78,18 +78,9 @@ pages:
     title: Terminology
   workflows.md:
     title: Workflows
-  security-and-privacy.md:
-    title: Security and Privacy
-  conformance.md:
-    title: Conformance
   assumptions-and-next-steps.md:
     title: Assumptions and Next Steps
-  history.md:
-    title: Version History
-  downloads.md:
-    title: Downloads
-  artifacts.html:
-    title: FHIR Artifacts
+  
 
 #
 # The parameters property represents IG.definition.parameter. Rather
