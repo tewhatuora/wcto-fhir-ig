@@ -4,7 +4,11 @@ title: Form Catalogue
 
 # Form catalogue
 
+**Page status: Draft for review**
+
 Each digital form is expected to use `Questionnaire` and `QuestionnaireResponse` for presentation and response capture. Additional resources listed below are candidate representations of information contained in, derived from, or associated with the form. Final mappings require detailed design.
+
+The initial implementation contains six distinct digital forms. Their detailed content must still be aligned with the source material, licensed vendor content, and approved clinical workflow.
 
 ## Catalogue overview
 
@@ -16,6 +20,25 @@ Each digital form is expected to use `Questionnaire` and `QuestionnaireResponse`
 | SDQ Parent Form | Single-author and licensed | Core Contact 8 — B4SC |
 | SDQ Teacher/ECE Form | Single-author and licensed | Core Contact 8 — B4SC |
 | Vision and Hearing Assessment Form | Single-author clinical form | Core Contact 8 — B4SC |
+
+| Form | Development status |
+|---|---|
+| Consent | In development |
+| Health History and Nursing Assessment | In development |
+| PEDS-R | To be developed following licensing confirmation |
+| SDQ Parent | To be developed following licensing confirmation |
+| SDQ Teacher/ECE | To be developed following licensing and author-access decisions |
+| Vision and Hearing Assessment | In development |
+
+## Common form requirements
+
+All forms require stable canonical identifiers and versions, unique `linkId` values, approved wording and terminology, accessible presentation, validation, save/resume rules, corrections, provenance, privacy, security, and executable tests.
+
+Authenticated pre-population may use only approved information for an authorised purpose of use. Unauthenticated launches are expected to present blank forms.
+
+For multi-author forms, the working design preserves the whānau response and links it to the authorised clinician-reviewed or final response. The final lineage, response-status, amendment, and item-level provenance model is **to be developed**. A clinician must not appear to have authored a whānau answer, and whānau must not appear to have authored a clinical interpretation.
+
+Form-specific mappings must define when answers create, update, reference, or do not create resources such as `Observation`, `Consent`, `ServiceRequest`, or provider-facing `Task`.
 
 ## Consent Form
 
@@ -58,6 +81,8 @@ The PEDS-R Form is a standalone licensed assessment with whānau and practitione
 | Unauthenticated population | None |
 
 Licensed questions, scoring, interpretation material, and distribution rules are intentionally not reproduced in this guide.
+
+The digital implementation must be reviewed with the relevant licence holder or vendor to confirm that wording, response options, scoring, presentation, and distribution remain compliant with the licensed instrument.
 
 ## SDQ Parent Form
 

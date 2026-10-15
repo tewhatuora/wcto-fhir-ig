@@ -4,7 +4,7 @@ title: WCTO Digital Services Implementation Guide
 
 # WCTO Digital Services Implementation Guide
 
-**Status:** Draft v0.1  
+**Status:** Draft for review — content and technical artefacts are in development  
 **Initial implementation:** Well Child Tamariki Ora Core Contact 8 — Before School Check (B4SC)
 
 ## Review status
@@ -41,18 +41,33 @@ This guide does not reproduce detailed API specifications, FHIR profiles, operat
 
 Detailed questionnaire content, value sets, profiles, extensions, validation rules, scoring logic, mappings, and implementation constraints will be confirmed through subsequent form design and technical specification.
 
+## Development status
+
+This release contains a complete documentation structure for review. It does not yet contain production-ready API contracts, FHIR profiles, Questionnaire resources, licensed assessment content, capability statements, or executable examples.
+
+Every incomplete specification is labelled using one of the following terms:
+
+- **In development** — confirmed component with its detailed specification still being prepared.
+- **To be developed** — planned component for which detailed work has not started or is blocked by a prerequisite.
+- **Draft for review** — proposed content awaiting stakeholder agreement.
+- **Decision required** — unresolved choice that materially affects the design.
+- **Future phase** — recognised requirement outside the initial build.
+
 ## Guide contents
 
 - [Scope](scope.html)
 - [Solution overview](solution-overview.html)
-- [Architectural principles](architecture-principles.html)
-- [Actors and authorship](actors-and-authorship.html)
-- [Access and authentication](access-and-authentication.html)
-- [National Data Services](national-data-services.html)
+- [Architecture](architecture.html)
+- [Actors, access and security](actors-access-security.html)
+- [National data and information population](national-data-and-population.html)
+- [Cohorting and workflows](cohorting-and-workflows.html)
 - [WCTO API services](wcto-api-services.html)
 - [Form catalogue](form-catalogue.html)
-- [Summary catalogue](summary-catalogue.html)
-- [Information population](information-population.html)
-- [Workflows](workflows.html)
-- [Assumptions and next steps](assumptions-and-next-steps.html)
+- [Summaries and referrals](summary-and-referrals.html)
+- [FHIR artefacts and terminology](fhir-artifacts-and-terminology.html)
+- [Conformance](conformance.html)
+- [Assumptions and decisions](assumptions-and-decisions.html)
+- [Version history](history.html)
+- [Downloads](downloads.html)
+- [FHIR artifacts](artifacts.html)
 
