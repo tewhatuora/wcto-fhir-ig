@@ -50,15 +50,40 @@ dependencies:
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
 #
-# pages:
-#   index.md:
-#     title: Example Home
-#   implementation.xml:
-#   examples.xml:
-#     title: Examples Overview
-#     simpleExamples.xml:
-#     complexExamples.xml:
-#
+pages:
+  index.md:
+    title: Home
+  scope.md:
+    title: Scope
+  solution-overview.md:
+    title: Solution Overview
+  architecture.md:
+    title: Architecture
+  actors-access-security.md:
+    title: Actors, Access and Security
+  national-data-and-population.md:
+    title: National Data and Population
+  cohorting-and-workflows.md:
+    title: Cohorting and Workflows
+  wcto-api-services.md:
+    title: WCTO API Services
+  form-catalogue.md:
+    title: Form Catalogue
+  summary-and-referrals.md:
+    title: Summaries and Referrals
+  fhir-artifacts-and-terminology.md:
+    title: FHIR Artifacts and Terminology
+  conformance.md:
+    title: Conformance
+  assumptions-and-decisions.md:
+    title: Assumptions and Decisions
+  history.md:
+    title: Version History
+  downloads.md:
+    title: Downloads
+  artifacts.html:
+    title: FHIR Artifacts
+
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -69,10 +94,14 @@ dependencies:
 # For parameters defined by the FHIR Tools IG see:
 # http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 #
-# parameters:
-#   excludettl: true
-#   validation: [allow-any-extensions, no-broken-links]
-#
+parameters:
+  show-inherited-invariants: false
+  bundle-references-resolve: false
+  default-contact: true
+  apply-version: false
+  default-version: true
+  display-warnings: true
+
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
 # │ as a simple structure where the YAML key is the menu item name and the value is the URL.       │
@@ -81,20 +110,30 @@ dependencies:
 # │ input/includes. To use a provided input/includes/menu.xml file, delete the "menu"              │
 # │ property below.                                                                                │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+
 menu:
   Home: index.html
-  Business:
-    Business Context: business-context.html
-    Business Rules: business-rules.html
-    Actors & Systems: actors.html
-    Workflow: workflow.html
-    Use Cases: use-cases.html
-  Use Case:
-    B4 School Check: b4sc.html
-  API Development:
-    Developer Guide: api-development-guide.html
-    FHIR Information Model: fhir-model.html
-  FHIR Artifacts: artifacts.html
+  Overview:
+    Scope: scope.html
+    Solution Overview: solution-overview.html
+    Architecture: architecture.html
+    Actors, Access and Security: actors-access-security.html
+    National Data and Population: national-data-and-population.html
+    Cohorting and Workflows: cohorting-and-workflows.html
+  Services and Forms:
+    API Services: wcto-api-services.html
+    Form Catalogue: form-catalogue.html
+    Summaries and Referrals: summary-and-referrals.html
+  Implementation:
+    FHIR Artifacts and Terminology: fhir-artifacts-and-terminology.html
+    Conformance: conformance.html
+    FHIR Artifacts: artifacts.html
+  Support:
+    Assumptions and Decisions: assumptions-and-decisions.html
+    Version History: history.html
+    Downloads: downloads.html
+    FHIR R4 Specification: new-tab https://hl7.org/fhir/R4/
+
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
