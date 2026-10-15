@@ -50,7 +50,6 @@ dependencies:
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
 #
-
 pages:
   index.md:
     title: Home
@@ -58,32 +57,26 @@ pages:
     title: Scope
   solution-overview.md:
     title: Solution Overview
-  architecture-principles.md:
-    title: Architectural Principles
-  actors-and-authorship.md:
-    title: Actors and Authorship
-  access-and-authentication.md:
-    title: Access and Authentication
-  national-data-services.md:
-    title: National Data Services
+  architecture.md:
+    title: Architecture
+  actors-access-security.md:
+    title: Actors, Access and Security
+  national-data-and-population.md:
+    title: National Data and Population
+  cohorting-and-workflows.md:
+    title: Cohorting and Workflows
   wcto-api-services.md:
     title: WCTO API Services
   form-catalogue.md:
     title: Form Catalogue
-  summary-catalogue.md:
-    title: Summary Catalogue
-  information-population.md:
-    title: Information Population
-  terminology.md:
-    title: Terminology
-  workflows.md:
-    title: Workflows
-  security-and-privacy.md:
-    title: Security and Privacy
+  summary-and-referrals.md:
+    title: Summaries and Referrals
+  fhir-artifacts-and-terminology.md:
+    title: FHIR Artifacts and Terminology
   conformance.md:
     title: Conformance
-  assumptions-and-next-steps.md:
-    title: Assumptions and Next Steps
+  assumptions-and-decisions.md:
+    title: Assumptions and Decisions
   history.md:
     title: Version History
   downloads.md:
@@ -117,29 +110,26 @@ parameters:
 # │ input/includes. To use a provided input/includes/menu.xml file, delete the "menu"              │
 # │ property below.                                                                                │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+
 menu:
   Home: index.html
   Overview:
     Scope: scope.html
     Solution Overview: solution-overview.html
-    Architectural Principles: architecture-principles.html
-    Actors and Authorship: actors-and-authorship.html
-  Access and Data:
-    Access and Authentication: access-and-authentication.html
-    National Data Services: national-data-services.html
-    Information Population: information-population.html
-    Terminology: terminology.html
+    Architecture: architecture.html
+    Actors, Access and Security: actors-access-security.html
+    National Data and Population: national-data-and-population.html
+    Cohorting and Workflows: cohorting-and-workflows.html
   Services and Forms:
-    WCTO API Services: wcto-api-services.html
+    API Services: wcto-api-services.html
     Form Catalogue: form-catalogue.html
-    Summary Catalogue: summary-catalogue.html
+    Summaries and Referrals: summary-and-referrals.html
   Implementation:
-    Workflows: workflows.html
-    Security and Privacy: security-and-privacy.html
+    FHIR Artifacts and Terminology: fhir-artifacts-and-terminology.html
     Conformance: conformance.html
     FHIR Artifacts: artifacts.html
   Support:
-    Assumptions and Next Steps: assumptions-and-next-steps.html
+    Assumptions and Decisions: assumptions-and-decisions.html
     Version History: history.html
     Downloads: downloads.html
     FHIR R4 Specification: new-tab https://hl7.org/fhir/R4/
