@@ -1,116 +1,65 @@
-# WCTO Digital Services Implementation Guide starter
+# WCTO FHIR Implementation Guide
 
-This bundle contains a streamlined, review-ready documentation and configuration starter for the draft **WCTO Digital Services Implementation Guide**. It includes the proposed APIs, six B4SC forms, workflows, summaries, conformance planning, and open decisions without duplicating the same material across unnecessary pages.
+This structure is designed so that most contributors only need normal Markdown.
+Styling is centralised in `wcto-template`, while FHIR artefacts are kept under
+`input/fsh`.
 
-## Included structure
+## For content authors
 
-```text
-WCTO_Digital_Services_IG_Markdown/
-├── sushi-config.yaml
-├── ig.ini
-├── CHANGELOG.md
-├── README.md
-└── input/
-    ├── fsh/
-    │   ├── capabilities/
-    │   │   └── WCTOCapabilities.fsh
-    │   ├── examples/
-    │   │   └── WCTOExamples.fsh
-    │   ├── extensions/
-    │   │   └── WCTOExtensions.fsh
-    │   ├── profiles/
-    │   │   └── WCTOProfiles.fsh
-    │   ├── questionnaires/
-    │   │   └── WCTOQuestionnaires.fsh
-    │   └── terminology/
-    │       └── WCTOTerminology.fsh
-    ├── examples/
-    │   └── .gitkeep
-    └── pagecontent/
-        ├── index.md
-        ├── scope.md
-        ├── solution-overview.md
-        ├── architecture.md
-        ├── actors-access-security.md
-        ├── national-data-and-population.md
-        ├── cohorting-and-workflows.md
-        ├── wcto-api-services.md
-        ├── form-catalogue.md
-        ├── summary-and-referrals.md
-        ├── fhir-artifacts-and-terminology.md
-        ├── conformance.md
-        ├── assumptions-and-decisions.md
-        ├── history.md
-        └── downloads.md
+Write narrative pages in `input/pagecontent/`.
+
+Use simple Markdown:
+
+```markdown
+### Main section
+
+Normal paragraph.
+
+#### Subsection
+
+- Bullet
+- Bullet
+
+| Column | Column |
+|---|---|
+| Value | Value |
+
+> **To be confirmed:** Draft note.
+
+Use `Patient`, `QuestionnaireResponse` and other FHIR names in backticks.
 ```
 
-## Source organisation
+Do **not** normally add `#` or `##` headings to pagecontent files. The Publisher
+generates the page title, so `###` keeps the heading hierarchy valid.
 
-- `input/pagecontent` contains human-readable IG guidance and development specifications.
-- `input/fsh/profiles` is reserved for approved resource profiles.
-- `input/fsh/extensions` is reserved for approved extensions that cannot be satisfied through reuse.
-- `input/fsh/terminology` is reserved for code systems, value sets, and terminology bindings.
-- `input/fsh/questionnaires` is reserved for the six canonical B4SC Questionnaire definitions.
-- `input/fsh/capabilities` is reserved for CapabilityStatements, operations, and API conformance artefacts.
-- `input/fsh/examples` is reserved for synthetic FSH Instance examples.
-- `input/examples` is reserved for approved hand-authored JSON or XML examples that are not generated from FSH.
+## For FHIR authors
 
-The current `.fsh` files contain comments only. This preserves the correct project structure and development intent without generating unapproved conformance resources.
+FHIR Shorthand lives in:
 
-## Proposed identifiers requiring confirmation
+- `input/fsh/profiles`
+- `input/fsh/extensions`
+- `input/fsh/terminology`
+- `input/fsh/examples`
 
-The following values in `sushi-config.yaml` are suitable draft values but must be confirmed before formal publication:
+The current `.fsh` files are intentionally comment-only placeholders. Add real
+FHIR definitions only when the associated design is confirmed.
 
-- package/ImplementationGuide id: `tewhatuora.fhir.wcto`;
-- canonical base: `https://fhir-ig.digital.health.nz/wcto`;
-- SUSHI name: `WCTODigitalServices`;
-- current draft version: `0.1.3`; and
-- publication label: `draft`.
+## Styling
 
-Dependency versions should also be checked against the approved programme baseline before release.
-
-## Build prerequisites
-
-- a supported Java runtime;
-- Node.js and npm;
-- FSH SUSHI; and
-- the HL7 FHIR IG Publisher.
-
-Install or update SUSHI:
-
-```shell
-npm install -g fsh-sushi
-```
+Shared styling lives in `wcto-template/content/assets/css/wcto.css`.
+The local template extends `fhir2.base.template`, keeping HTML/CSS out of the
+narrative Markdown.
 
 ## Build
 
-From the project root, run SUSHI:
-
-```shell
+```cmd
 sushi .
+_build.bat build
+start msedge "%CD%\\output\\en\\index.html"
 ```
 
-Then run the IG Publisher using the included `ig.ini`:
+## Draft language
 
-```shell
-java -jar publisher.jar -ig ig.ini
-```
-
-Health New Zealand IG repositories commonly use the standard `_updatePublisher` and `_genonce` helper scripts. If this starter is merged into an existing IG repository, retain that repository's approved scripts and CI configuration.
-
-## Development labels
-
-Incomplete sections use explicit lifecycle labels rather than empty placeholders:
-
-- **In development** — confirmed component with a specification still being prepared;
-- **To be developed** — planned component for which detailed work has not started;
-- **Draft for review** — proposed content awaiting stakeholder agreement;
-- **Decision required** — an unresolved choice that materially affects the design; and
-- **Future phase** — recognised requirement outside the initial build.
-
-The Markdown pages describe the intended scope and acceptance inputs. The grouped `.fsh` files show where future Questionnaire, profile, extension, terminology, CapabilityStatement, operation, and example artefacts belong. They do not pretend those artefacts already exist.
-
-## Important
-
-This content remains a draft for stakeholder review. Statements described as *draft*, *proposed*, *expected*, *potential*, or *to be confirmed* are not approved requirements. Detailed FHIR profiles, operations, security controls, terminology, scoring, and conformance requirements must be confirmed through the relevant design and governance processes.
-
+- **Current direction** — sufficiently agreed to describe for planning.
+- **Proposed** — likely design but not final.
+- **To be confirmed** — unresolved business, clinical, security or technical design.

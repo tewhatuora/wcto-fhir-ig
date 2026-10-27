@@ -1,73 +1,53 @@
----
-title: WCTO Digital Services Implementation Guide
----
+{% include wcto-style.html %}
 
-# WCTO Digital Services Implementation Guide
+### About this Guide
 
-**Status:** Draft for review — content and technical artefacts are in development  
-**Initial implementation:** Well Child Tamariki Ora Core Contact 8 — Before School Check (B4SC)
+This Implementation Guide describes the emerging digital services, FHIR forms and integration approach for **Well Child Tamariki Ora (WCTO)**.
 
-## Review status
+The current implementation focus is **WCTO Core Contact 8 – Before School Check (B4SC)**. The underlying digital services and integration patterns are intended to support future WCTO contacts.
 
-This Implementation Guide presents the proposed structure and initial content for internal stakeholder review. Items described as **draft**, **proposed**, **expected**, **potential**, or **to be confirmed** remain subject to business, clinical, architecture, privacy, security, information governance, licensing, and technical design approval.
+### WCTO Digital Services at a Glance
+A high-level view of how scheduling, form access, assessment and summary services fit together.
+```text
+Eligibility / Cohorting
+          │
+          ▼
+ WCTO Schedule API
+          │
+          ▼
+Coordinator / Provider workflow
+          │
+          ▼
+    Magic Link API
+          │
+          ▼
+      FHIR Forms
+          │
+     ┌────┴──────────────┐
+     │                   │
+     ▼                   ▼
+Schedule status     WCTO Summary API
+                         │
+              ┌──────────┼──────────┐
+              ▼          ▼          ▼
+          Completed   Clinical   Whānau
+            forms      Summary    Summary
+```
+> **Supporting National Data Services:** NHI, NES, AIR and HPI may be used in authenticated and authorised workflows where permitted.
 
-## Purpose
+### Explore the Guide
 
-This guide describes the national digital services, integration patterns, FHIR forms, information models, and summary services proposed to support delivery of Well Child Tamariki Ora (WCTO) contacts. The initial use case is Core Contact 8, commonly known as the Before School Check.
+| Section | Related pages | What you will find |
+|---|---|---|
+| **Overview**<br>[Business Context](business-context.html) | • [Purpose & Scope](purpose-scope.html)<br>• [Architecture & Principles](architecture.html)<br>• [Actors & Systems](actors.html) | Why WCTO Digital Services are being developed, what is in scope, the overall architecture and the people, organisations and systems involved. |
+| [API & Service Catalogue](api-catalogue.html) | • [National Data Services](national-services.html)<br>• [Magic Link API](magic-link-api.html)<br>• [WCTO Schedule API](schedule-api.html)<br>• [WCTO Summary API](summary-api.html) | The national and WCTO digital services, their responsibilities and how they fit together. |
+| [Form Catalogue](forms.html) | • [Form Access & Authentication](form-access.html)<br>• Individual form pages<br>• [Summary Catalogue](summaries.html) | Which FHIR forms are planned, who completes them, access patterns and summary outputs. |
+| [End-to-End Workflow](workflow.html) | • Eligibility / cohorting<br>• Assignment<br>• Form completion<br>• Status and summary generation | How information moves through the proposed WCTO workflow. |
+| **Implementation**<br>[Information Population](information-population.html) | • [Assumptions & Items to Confirm](assumptions.html)<br>• [Examples](examples.html)<br>• [Next Design Artefacts](next-design.html) | Population rules, current assumptions, placeholders and future design work. |
+| [FHIR Information Model](fhir-model.html) | • Candidate resource mappings<br>• Profiles and terminology<br>• [Examples](examples.html)<br>• [FHIR Artifacts](artifacts.html) | How WCTO information may be represented using FHIR and the generated artefacts in this guide. |
 
-It provides a common reference for:
+### Current Status
 
-- Health New Zealand product, architecture, delivery, and operational teams;
-- WCTO service providers and coordinators;
-- Practice Management System (PMS) and Electronic Medical Record (EMR) vendors;
-- FHIR form developers and implementers; and
-- National Data Service teams.
+> **Draft:** This guide represents the current conceptual design. Detailed API interactions, form content, security requirements, FHIR profiles, status models and conformance requirements are still being confirmed.
 
-## What this guide covers
-
-This guide describes:
-
-- existing National Data Services used within WCTO workflows;
-- proposed WCTO Digital Services;
-- FHIR forms and associated summaries;
-- form access, authorship, and completion patterns;
-- relevant information domains and candidate FHIR resources;
-- potential form-population sources; and
-- draft end-to-end information flows.
-
-## What this guide does not replace
-
-This guide does not reproduce detailed API specifications, FHIR profiles, operations, security requirements, or conformance requirements owned by other national services. Implementers must use the authoritative Implementation Guide for each referenced service.
-
-Detailed questionnaire content, value sets, profiles, extensions, validation rules, scoring logic, mappings, and implementation constraints will be confirmed through subsequent form design and technical specification.
-
-## Development status
-
-This release contains a complete documentation structure for review. It does not yet contain production-ready API contracts, FHIR profiles, Questionnaire resources, licensed assessment content, capability statements, or executable examples.
-
-Every incomplete specification is labelled using one of the following terms:
-
-- **In development** — confirmed component with its detailed specification still being prepared.
-- **To be developed** — planned component for which detailed work has not started or is blocked by a prerequisite.
-- **Draft for review** — proposed content awaiting stakeholder agreement.
-- **Decision required** — unresolved choice that materially affects the design.
-- **Future phase** — recognised requirement outside the initial build.
-
-## Guide contents
-
-- [Scope](scope.html)
-- [Solution overview](solution-overview.html)
-- [Architecture](architecture.html)
-- [Actors, access and security](actors-access-security.html)
-- [National data and information population](national-data-and-population.html)
-- [Cohorting and workflows](cohorting-and-workflows.html)
-- [WCTO API services](wcto-api-services.html)
-- [Form catalogue](form-catalogue.html)
-- [Summaries and referrals](summary-and-referrals.html)
-- [FHIR artefacts and terminology](fhir-artifacts-and-terminology.html)
-- [Conformance](conformance.html)
-- [Assumptions and decisions](assumptions-and-decisions.html)
-- [Version history](history.html)
-- [Downloads](downloads.html)
-- [FHIR artifacts](artifacts.html)
-
+See [Assumptions & Items to Confirm](assumptions.html) for open design decisions.
