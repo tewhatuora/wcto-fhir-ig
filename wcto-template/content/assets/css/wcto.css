@@ -1,0 +1,31 @@
+:root {
+  --wcto-primary: #163b63;
+  --wcto-primary-dark: #0f2c47;
+  --wcto-accent: #0b8f87;
+  --wcto-accent-dark: #08766f;
+  --wcto-accent-soft: #eef8f7;
+  --wcto-link: #006ea6;
+  --wcto-border: #d9dee4;
+  --wcto-surface: #f7fafb;
+  --wcto-text: #1f2328;
+}
+.navbar-inverse { background-color: var(--wcto-primary) !important; border-color: var(--wcto-primary) !important; }
+.navbar-inverse .navbar-nav > li > a { color: #edf7f6 !important; }
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .open > a { background-color: var(--wcto-primary-dark) !important; color: #fff !important; }
+#segment-footer > .container { background-color: var(--wcto-primary) !important; color: #fff; }
+#segment-content h3 { margin-top: 34px; margin-bottom: 14px; color: var(--wcto-primary-dark); font-size: 23px; font-weight: 700; }
+#segment-content h4 { margin-top: 25px; margin-bottom: 10px; color: var(--wcto-primary); font-size: 17px; font-weight: 700; }
+#segment-content p, #segment-content li { line-height: 1.6; }
+#segment-content a { color: var(--wcto-link); }
+#segment-content a:hover, #segment-content a:focus { color: var(--wcto-accent-dark); }
+#segment-content table { width: 100%; margin: 18px 0 28px; border-collapse: collapse; background: #fff; border: 1px solid var(--wcto-border); }
+#segment-content table th { padding: 10px 12px; background: var(--wcto-primary); color: #fff; border: 1px solid var(--wcto-primary); text-align: left; vertical-align: top; font-weight: 700; }
+#segment-content table td { padding: 10px 12px; border: 1px solid var(--wcto-border); vertical-align: top; line-height: 1.5; }
+#segment-content table tbody tr:nth-child(even) td { background: var(--wcto-surface); }
+#segment-content blockquote { margin: 20px 0 28px; padding: 16px 20px; background: var(--wcto-accent-soft); border-left: 4px solid var(--wcto-accent); border-radius: 0 5px 5px 0; color: var(--wcto-text); font-size: inherit; }
+#segment-content blockquote p:last-child { margin-bottom: 0; }
+#segment-content code { padding: 2px 5px; background: var(--wcto-surface); color: var(--wcto-primary-dark); border: 1px solid var(--wcto-border); border-radius: 3px; font-size: 90%; }
+@media (max-width: 700px) { #segment-content table { font-size: 13px; } #segment-content table th, #segment-content table td { padding: 7px; } }
