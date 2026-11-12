@@ -1,0 +1,55 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam class { BackgroundColor #F6F8FB; BorderColor #748DA7; ArrowColor #527A9C }
+hide empty methods
+package "WCTO / B4SC FHIR boundary" {
+ class "WCTOB4SCCarePlan\n«CarePlan profile»" as CP #F8DCCF {
+   identifier
+   subject
+   status
+   activity
+ }
+ class "WCTOB4SCTask\n«Task profile»" as T #F8DCCF {
+   basedOn
+   for
+   status
+   businessStatus
+ }
+ class "B4SC Questionnaire\n«Questionnaire definition»" as Q #DDF2EC {
+   url
+   version
+   item
+ }
+ class "B4SC QuestionnaireResponse\n«QuestionnaireResponse profile»" as QR #F8DCCF {
+   questionnaire
+   subject
+   status
+   authored
+ }
+ class "B4SC PlanDefinition\n«PlanDefinition»" as PD #DDF2EC {
+   url
+   version
+   action
+ }
+ CP "1" <-- "0..*" T : basedOn / focus (design to confirm)
+ Q "1" <-- "0..*" QR : questionnaire (canonical)
+ T ..> QR : output / evidence (confirm)
+ PD ..> CP : orchestration applies plan
+}
+package "External authoritative data" {
+ class "Patient (NHI)" as P #CDE9F7
+ class "Practitioner / Organisation (HPI)" as H #CDE9F7
+}
+CP ..> P : subject
+QR ..> P : subject
+T ..> P : for
+T ..> H : owner / requester
+note bottom of CP
+  Candidate model only.
+  Confirm actual profile elements,
+  cardinalities and references in FSH.
+end note
+@enduml

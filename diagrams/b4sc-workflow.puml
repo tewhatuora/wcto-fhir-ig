@@ -1,0 +1,35 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 16
+skinparam ArrowColor #547491
+skinparam activity { BackgroundColor #EAF3FA; BorderColor #7899B7; DiamondBackgroundColor #DDF2EC }
+start
+:Identify eligible child in cohorts;
+:Check for existing B4SC CarePlan;
+if (Existing B4SC plan?) then (yes)
+  :Reuse existing CarePlan;
+else (no)
+  :Create B4SC CarePlan;
+endif
+:Create / reconcile associated Tasks;
+:Coordinate provider assignment;
+fork
+  :Consent capture / review;
+fork again
+  :Whānau health + PEDS-R + SDQ-P forms;
+fork again
+  :Vision and Hearing assessment;
+end fork
+:Record evidence and task progress;
+:Nurse evaluation / clinical completion gate;
+if (Nurse evaluation complete?) then (yes)
+  :Produce clinical and whānau summaries;
+  :Track referral follow-up separately if required;
+else (no)
+  :Remain in progress;
+endif
+stop
+@enduml

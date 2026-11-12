@@ -3,7 +3,7 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: wcto.tewhatuora.govt.nz
+id: tewhatuora.wcto
 canonical: https://fhir-ig.digital.health.nz/wcto
 name: WCTO
 title: Well Child Tamariki Ora FHIR Implementation Guide
@@ -19,8 +19,6 @@ publisher:
   name: Health New Zealand | Te Whatu Ora
   url: https://www.healthnz.govt.nz/
 
-
-
 dependencies:
   fhir.org.nz.ig.base:
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
@@ -29,90 +27,110 @@ dependencies:
   tewhatuora.digitaltooling: 0.0.11
   hl7.terminology.r4: 6.5.0
 
-
 parameters:
   show-inherited-invariants: false
-  bundle-references-resolve: false
-  default-contact: true
+  usage-stats-opt-out: true
+  excludettl: true
   apply-version: false
   default-version: true
-  display-warnings: true
+
+
 
 pages:
   index.md:
     title: Home
-  business-context.md:
-    title: Business Context
   purpose-scope.md:
     title: Purpose and Scope
+  solution-overview.md:
+    title: Solution Overview
   architecture.md:
-    title: Architecture and Principles
+    title: Architecture and Data Model
   actors.md:
-    title: Actors and Systems
-  workflow.md:
-    title: End-to-End Workflow
-  api-catalogue.md:
-    title: API and Service Catalogue
-  national-services.md:
-    title: National Data Services
-  magic-link-api.md:
-    title: Magic Link API
-  schedule-api.md:
-    title: WCTO Schedule API
-  summary-api.md:
-    title: WCTO Summary API
+    title: Actors and Security
+  b4sc-workflow.md:
+    title: B4SC Workflow
+  apis.md:
+    title: B4SC APIs
+  api-standards.md:
+    title: API Standards Alignment
+  fhir-data-model.md:
+    title: FHIR Resource Model
+  b4sc-data-model.md:
+    title: B4SC UML Data Model
+  clinical-data-model.md:
+    title: Clinical Data Model
+  data-mapping.md:
+    title: Business-to-FHIR Data Mapping
+  b4sc-data-mapping.md:
+    title: B4SC Data Mapping
+  questionnaire-mapping.md:
+    title: Questionnaire Mapping
+  mapping-decisions.md:
+    title: Mapping Decisions and Sign-off
+  form-lifecycle-provenance.md:
+    title: Form Lifecycle and Provenance
+  data-population-security.md:
+    title: Data Population and Security
+  nz-base-and-profiling.md:
+    title: NZ Base and Profiling
+  profiles.md:
+    title: Profiles
   forms.md:
-    title: Form Catalogue
-  form-access.md:
-    title: Form Access and Authentication
-  form-consent.md:
-    title: Consent Form
-  form-health-history-nursing.md:
-    title: Health History and Nursing Assessment
-  form-peds-r.md:
-    title: PEDS-R
-  form-sdq-parent.md:
-    title: SDQ Parent
-  form-sdq-teacher-ece.md:
-    title: SDQ Teacher/ECE
-  form-vision-hearing.md:
-    title: Vision and Hearing Assessment
-  summaries.md:
-    title: Summary Catalogue
-  information-population.md:
-    title: Information Population
-  fhir-model.md:
-    title: FHIR Information Model
+    title: Forms
   examples.md:
     title: Examples
-  assumptions.md:
-    title: Assumptions and Items to Confirm
-  next-design.md:
-    title: Next Design Artefacts
+  versioning.md:
+    title: Versioning and Compatibility
+  decisions-and-tests.md:
+    title: Open Decisions
+  developer-guide.md:
+    title: Developer Guide
+  history.md:
+    title: Version History
+
 menu:
   Home: index.html
   Overview:
-    Business Context: business-context.html
-    Purpose & Scope: purpose-scope.html
-    Architecture & Principles: architecture.html
-    Actors & Systems: actors.html
-    End-to-End Workflow: workflow.html
-  APIs & Services:
-    API & Service Catalogue: api-catalogue.html
-    National Data Services: national-services.html
-    Magic Link API: magic-link-api.html
-    WCTO Schedule API: schedule-api.html
-    WCTO Summary API: summary-api.html
+    Purpose and Scope: purpose-scope.html
+    Solution Overview: solution-overview.html
+    Architecture: architecture.html
+    Actors and Security: actors.html
+  B4SC Workflow:
+    End-to-End Workflow: b4sc-workflow.html
+    CarePlan and Tasks: b4sc-workflow.html#end-to-end-steps-and-careplan-updates
+    B4SC APIs: apis.html
+    API Standards: api-standards.html
+  Data Models:
+    FHIR Resource Model: fhir-data-model.html
+    B4SC UML Data Model: b4sc-data-model.html
+    Clinical Data Model: clinical-data-model.html
+    Business-to-FHIR Mapping: data-mapping.html
+    B4SC Data Mapping: b4sc-data-mapping.html
+    Questionnaire Mapping: questionnaire-mapping.html
+    Mapping Decisions: mapping-decisions.html
+    Form Lifecycle and Provenance: form-lifecycle-provenance.html
+    Data Population and Security: data-population-security.html
+  Profiles:
+    Profile Overview: profiles.html
+    NZ Base and Profiling: nz-base-and-profiling.html
+    WCTO CarePlan: StructureDefinition-wcto-careplan.html
+    B4SC CarePlan: StructureDefinition-wcto-b4sc-careplan.html
+    WCTO Task: StructureDefinition-wcto-task.html
+    WCTO QuestionnaireResponse: StructureDefinition-wcto-questionnaire-response.html
+    WCTO RelatedPerson: StructureDefinition-wcto-related-person.html
+    WCTO PlanDefinition: StructureDefinition-wcto-plan-definition.html
   Forms:
     Form Catalogue: forms.html
-    Access & Authentication: form-access.html
-    Summary Catalogue: summaries.html
+    Consent: forms.html#consent
+    Whānau Health: forms.html#whanau-health
+    PEDS-R: forms.html#peds-r
+    SDQ Parent: forms.html#sdq-parent
+    SDQ Teacher/ECE: forms.html#sdq-teacherece
+    Vision and Hearing: forms.html#vision-and-hearing
+    Nurse Evaluation: forms.html#nurse-evaluation
   Implementation:
-    Information Population: information-population.html
-    FHIR Information Model: fhir-model.html
-    Examples: examples.html
-    Assumptions & TBC: assumptions.html
-    Next Design Artefacts: next-design.html
-
-instanceOptions:
-  manualSliceOrdering: true # true | false
+    Developer Guide: developer-guide.html
+    Versioning and Compatibility: versioning.html
+    Open Decisions: decisions-and-tests.html
+    Version History: history.html
+  FHIR Artifacts: artifacts.html

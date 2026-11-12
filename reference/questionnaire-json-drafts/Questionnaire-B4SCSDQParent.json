@@ -1,0 +1,27 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "B4SCSDQParent",
+  "status": "draft",
+  "item": [
+    {
+      "linkId": "B4SCSDQParent-section",
+      "text": "B4SC SDQ Parent",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "assessment-reference",
+          "text": "Reference to licensed completed SDQ Parent assessment",
+          "type": "string"
+        },
+        {
+          "linkId": "parent-comments",
+          "text": "Parent comments (optional supplementary field)",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "name": "B4SCSDQParent",
+  "title": "B4SC SDQ Parent",
+  "description": "Licensed assessment: official items deliberately excluded"
+}

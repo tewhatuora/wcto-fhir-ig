@@ -1,0 +1,26 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundcorner 18
+skinparam ArrowColor #547491
+skinparam rectangle { BorderColor #7899B7; BackgroundColor #EEF5FB }
+top to bottom direction
+rectangle "Cohorts\nNHI-derived eligibility" as cohorts #EEF5FB
+rectangle "National services\nNHI · NES · HPI · AIR" as national #EEF5FB
+rectangle "Coordinator\nProvider assignment" as coordinator #EEF5FB
+rectangle "PMS / EMR" as emr #EEF5FB
+rectangle "WCTO scheduler\nCarePlan + Task orchestration" as scheduler #DDF2EC
+rectangle "Magic Link API\nForm access" as magic #EEF5FB
+rectangle "FHIR server\nCarePlan · Task · QuestionnaireResponse" as fhir #DDF2EC
+rectangle "WCTO Summary API" as summary #EEF5FB
+cohorts --> scheduler : eligible children
+national --> scheduler : authorised lookup
+coordinator --> scheduler : assign provider
+emr --> scheduler : schedule / status
+scheduler --> fhir : create / update
+emr --> magic : launch forms
+magic --> fhir : read / submit
+fhir --> summary : approved clinical data
+@enduml

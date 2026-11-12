@@ -1,0 +1,42 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "B4SCConsent",
+  "status": "draft",
+  "item": [
+    {
+      "linkId": "B4SCConsent-section",
+      "text": "B4SC Consent",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "caregiver-name",
+          "text": "Name of parent or caregiver",
+          "type": "string"
+        },
+        {
+          "linkId": "consent-signatory-name",
+          "text": "Name of parent or legal guardian giving consent",
+          "type": "string"
+        },
+        {
+          "linkId": "consent-date",
+          "text": "Today's date",
+          "type": "date"
+        },
+        {
+          "linkId": "consent-given",
+          "text": "I understand what the B4 School Check involves and give my consent to the B4 School Check.",
+          "type": "boolean"
+        },
+        {
+          "linkId": "consent-checked-by",
+          "text": "Checked by (office use only)",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "name": "B4SCConsent",
+  "title": "B4SC Consent",
+  "description": "Parent or legal guardian consent, with clinician review"
+}

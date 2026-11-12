@@ -1,0 +1,37 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "B4SCPEDSR",
+  "status": "draft",
+  "item": [
+    {
+      "linkId": "B4SCPEDSR-section",
+      "text": "B4SC PEDS-R",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "parent-concerns-summary",
+          "text": "Parent developmental concerns summary (placeholder, not licensed assessment)",
+          "type": "text"
+        },
+        {
+          "linkId": "nurse-review",
+          "text": "Nurse review (placeholder)",
+          "type": "text"
+        },
+        {
+          "linkId": "pathway",
+          "text": "PEDS-R pathway (placeholder; controlled values pending approval)",
+          "type": "string"
+        },
+        {
+          "linkId": "follow-up",
+          "text": "Recommendations and follow-up",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "name": "B4SCPEDSR",
+  "title": "B4SC PEDS-R",
+  "description": "Licensed assessment: questions and scoring deliberately excluded"
+}

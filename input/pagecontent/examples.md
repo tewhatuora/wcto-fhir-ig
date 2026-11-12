@@ -1,19 +1,14 @@
-{% include wcto-style.html %}
+<link rel="stylesheet" href="assets/css/wcto.css">
 
+# FHIR Examples
 
-> **In progress:** Example payloads and FHIR instances will be added as API interactions, profiles and forms are confirmed.
+The following synthetic instances illustrate how WCTO resources fit together. They are not real patient data and are not approved production payloads.
 
-| Example | Status |
+| Example | Description |
 |---|---|
-| Authenticated Magic Link launch context | To be developed |
-| Unauthenticated form launch | To be developed |
-| WCTO Schedule due item | To be developed |
-| Provider assignment / reassignment | To be developed |
-| Multi-author QuestionnaireResponse | To be developed |
-| Vision and Hearing QuestionnaireResponse | To be developed |
-| Schedule status update | To be developed |
-| Completed individual form | To be developed |
-| Clinical B4SC Summary | To be developed |
-| Whānau B4SC Summary | To be developed |
+| [Example child](Patient-WCTOExampleChild.html) | Synthetic child identity |
+| [B4SC CarePlan](CarePlan-WCTOExampleB4SCCarePlan.html) | CarePlan linked to the child |
+| [Nurse evaluation Task](Task-WCTOExampleNurseTask.html) | Task referencing the CarePlan through `basedOn` |
+| [B4SC PlanDefinition](PlanDefinition-WCTOExampleB4SCPlanDefinition.html) | Draft workflow action catalogue |
 
-Examples should use synthetic data, align with confirmed profiles/interactions and avoid presenting provisional design as mandatory conformance.
+See [FHIR Profiles](profiles.html) for the formal resource constraints and [B4SC Workflow](b4sc-workflow.html) for the expected Task lifecycle. Additional examples are needed for consent, family forms, screening, responses, referrals and summary outputs.

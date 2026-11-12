@@ -1,0 +1,62 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "B4SCVisionHearing",
+  "status": "draft",
+  "item": [
+    {
+      "linkId": "B4SCVisionHearing-section",
+      "text": "B4SC Vision and Hearing Assessment",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "vision-method",
+          "text": "Vision screening method",
+          "type": "string"
+        },
+        {
+          "linkId": "vision-right",
+          "text": "Right eye result",
+          "type": "string"
+        },
+        {
+          "linkId": "vision-left",
+          "text": "Left eye result",
+          "type": "string"
+        },
+        {
+          "linkId": "vision-outcome",
+          "text": "Vision assessment outcome",
+          "type": "string"
+        },
+        {
+          "linkId": "hearing-method",
+          "text": "Hearing screening method",
+          "type": "string"
+        },
+        {
+          "linkId": "hearing-right",
+          "text": "Right ear result",
+          "type": "string"
+        },
+        {
+          "linkId": "hearing-left",
+          "text": "Left ear result",
+          "type": "string"
+        },
+        {
+          "linkId": "hearing-outcome",
+          "text": "Hearing assessment outcome",
+          "type": "string"
+        },
+        {
+          "linkId": "referral-follow-up",
+          "text": "Referral or follow-up recommendation",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "name": "B4SCVisionHearing",
+  "title": "B4SC Vision and Hearing Assessment",
+  "description": "Clinical assessment draft fields"
+}

@@ -1,0 +1,53 @@
+/* WCTO styling: publisher template remains responsible for layout */
+:root { --wcto-navy:#123c58; --wcto-blue:#167b9a; --wcto-pale:#edf6f8; --wcto-border:#d6e5e9; }
+.wcto-hero { background:var(--wcto-pale); border-left:5px solid var(--wcto-blue); border-radius:6px; padding:18px 22px; margin:18px 0; color:var(--wcto-navy); }
+.wcto-hero p { margin:8px 0 0; }
+h1,h2,h3 { color:var(--wcto-navy); }
+table { width:100%; }
+table th { background:var(--wcto-pale); color:var(--wcto-navy); }
+table th,table td { padding:9px 12px; vertical-align:top; }
+pre { border-left:4px solid var(--wcto-blue); overflow-x:auto; padding:12px; }
+@media(max-width:700px) { table {display:block;overflow-x:auto;} .wcto-hero{padding:12px;} }
+
+/* WCTO IG narrative layout: keep diagrams proportional and avoid large blank gaps. */
+.wcto-diagram, .markdown-body img, .content img { max-width: min(100%, 760px); height: auto; display: block; margin: 0.75rem auto 1rem; }
+.content table { margin-top: .5rem; margin-bottom: 1rem; }
+.content h2, .content h3 { clear: none; margin-bottom: .5rem; }
+.content figure { margin: .75rem auto 1rem; }
+@media (max-width: 800px) { .content img { max-width: 100%; } }
+
+/* Consistent compact diagram presentation across Publisher layouts. */
+#content img[src$=".svg"], .content img[src$=".svg"], main img[src$=".svg"],
+#content img[src*="b4sc-"], #content img[src*="wcto-"] {
+  display:block !important; float:none !important; clear:both !important;
+  width:auto !important; max-width:min(100%, 560px) !important;
+  max-height:360px !important; height:auto !important; object-fit:contain;
+  margin:8px auto 14px !important;
+}
+/* Avoid inherited float/clear spacing around narrative tables and headings. */
+#content table, .content table, main table {float:none !important; clear:none !important; margin:8px 0 14px !important;}
+#content h2, #content h3, .content h2, .content h3 {float:none !important; clear:none !important; margin-top:18px !important; margin-bottom:7px !important;}
+#content figure, .content figure {float:none !important; clear:none !important; margin:8px auto 14px !important;}
+@media(max-width:700px) { #content img[src$=".svg"],.content img[src$=".svg"],main img[src$=".svg"] {max-width:100% !important;max-height:none !important;} }
+
+.wcto-compact-diagram {max-width:560px;margin:6px auto 12px;float:none;clear:none;}
+.wcto-compact-diagram img {max-width:100% !important;max-height:360px !important;object-fit:contain;}
+
+/* Compact diagram presentation; keep labels below narrative font size. */
+.wcto-compact-diagram {max-width:480px!important;margin:6px 0 12px!important;}
+.wcto-compact-diagram img {max-width:100%!important;max-height:290px!important;margin:0!important;}
+#content img[src$=".svg"],.content img[src$=".svg"] {max-width:480px!important;max-height:290px!important;margin:8px 0 12px!important;}
+/* Publisher TOC floats must not force full-width tables below the TOC. */
+#content table,.content table {width:100%!important;max-width:100%!important;table-layout:auto!important;clear:none!important;}
+#content h2,.content h2 {margin-top:16px!important;margin-bottom:6px!important;clear:none!important;}
+#content ul,.content ul {padding-left:2.2rem;}
+/* Avoid doubled heading rules in narrative sections; retain generated artifact styling. */
+#content h1,.content h1 {border-bottom:0!important;}
+
+/* Consolidated original WCTO table treatment — applies to Markdown and HTML tables. */
+#content table, .content table, main table {border-collapse:collapse!important;border:1px solid #b9c6cf!important;background:#fff!important;}
+#content table th, .content table th, main table th {background:#163b63!important;color:#fff!important;border:1px solid #0f2c47!important;padding:7px 9px!important;text-align:left!important;}
+#content table td, .content table td, main table td {border:1px solid #d5dde3!important;padding:7px 9px!important;vertical-align:top!important;}
+#content table tbody tr:nth-child(even) td,.content table tbody tr:nth-child(even) td,main table tbody tr:nth-child(even) td {background:#f7f9fa!important;}
+#content table a,.content table a,main table a {color:#006ea6;font-weight:600;}
+#content table a:hover,.content table a:hover,main table a:hover{text-decoration:underline;}

@@ -1,0 +1,27 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "B4SCSDQTeacher",
+  "status": "draft",
+  "item": [
+    {
+      "linkId": "B4SCSDQTeacher-section",
+      "text": "B4SC SDQ Teacher ECE",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "assessment-reference",
+          "text": "Reference to licensed completed SDQ Teacher/ECE assessment",
+          "type": "string"
+        },
+        {
+          "linkId": "educator-comments",
+          "text": "Educator comments (optional supplementary field)",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "name": "B4SCSDQTeacher",
+  "title": "B4SC SDQ Teacher ECE",
+  "description": "Licensed assessment: official items deliberately excluded"
+}

@@ -1,0 +1,125 @@
+@startuml
+' Health NZ-style UML 2.0 FHIR data model - editable source
+left to right direction
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam linetype ortho
+skinparam class {
+ BackgroundColor White
+ BorderColor #424A55
+ ArrowColor #444444
+}
+hide methods
+legend bottom
+|= Colour |= Meaning |
+|<#FFF5F3> White | Standard FHIR resource |
+|<#FFD2C4> Salmon | Proposed WCTO/B4SC profile |
+|<#FFB08A> Orange | Shared canonical definition |
+|<#A8DCF0> Sky blue | External logical record / identifier |
+Solid arrows = FHIR references; blue dashed arrows = logical external identifiers.
+Cardinality describes intended design, not yet approved profile constraints.
+endlegend
+package "WCTO / B4SC bounded context — shared FHIR server" {
+ class "WCTOB4SCCarePlan\n<<CarePlan>>" as CP #FFD2C4 {
+  * identifier: Identifier (B4SC episode)
+  * status: code
+  * intent: code
+  * subject: Reference(Patient)
+  * category: CodeableConcept (B4SC)
+  period: Period
+  careTeam: Reference(CareTeam) [0..*]
+ }
+ class "WCTOTask\n<<Task>>" as T #FFD2C4 {
+  * status: code
+  * intent: code
+  * code: CodeableConcept
+  * for: Reference(Patient)
+  basedOn: Reference(CarePlan)
+  owner: Reference(PractitionerRole|Organization)
+  output: BackboneElement [0..*]
+ }
+ class "WCTOQuestionnaireResponse\n<<QuestionnaireResponse>>" as QR #FFD2C4 {
+  * status: code
+  * questionnaire: canonical
+  * subject: Reference(Patient)
+  author: Reference(Patient|RelatedPerson|Practitioner)
+  source: Reference(Patient|RelatedPerson)
+  authored: dateTime
+ }
+ class "Patient" as P #FFF5F3 {
+  * identifier: Identifier (NHI)
+ }
+ class "RelatedPerson" as RP #FFF5F3 {
+  patient: Reference(Patient)
+  relationship: CodeableConcept
+ }
+ class "PractitionerRole" as PR #FFF5F3 {
+  practitioner: Reference(Practitioner)
+  organization: Reference(Organization)
+ }
+ class "CareTeam" as CT #FFF5F3 {
+  subject: Reference(Patient)
+  participant: BackboneElement [0..*]
+ }
+ class "Observation" as O #FFF5F3 {
+  status: code
+  code: CodeableConcept
+  subject: Reference(Patient)
+  derivedFrom: Reference(QuestionnaireResponse)
+ }
+ class "DocumentReference" as DR #FFF5F3 {
+  status: code
+  subject: Reference(Patient)
+  content: attachment
+ }
+ class "ServiceRequest (conditional)" as SR #FFF5F3 {
+  status: code
+  intent: code
+  subject: Reference(Patient)
+ }
+ class "B4SC PlanDefinition\n<<PlanDefinition>>" as PD #FFB08A {
+  url: canonical
+  version: string
+  action: BackboneElement [0..*]
+ }
+ class "B4SC Questionnaires\n<<Questionnaire>>" as Q #FFB08A {
+  url: canonical
+  version: string
+  item: BackboneElement [0..*]
+ }
+ CP "1" --> "1" P : subject
+ T "0..*" --> "1" CP : basedOn
+ T "0..*" --> "1" P : for
+ QR "0..*" --> "1" P : subject
+ QR "0..*" ..> "1" Q : questionnaire (canonical)
+ QR "0..*" --> "0..1" RP : author / source when caregiver
+ RP "0..*" --> "1" P : patient
+ CP "0..1" --> "0..1" CT : careTeam
+ T "0..*" --> "0..1" PR : owner
+ O "0..*" --> "1" P : subject
+ O "0..*" --> "0..*" QR : derivedFrom (when supported)
+ DR "0..*" --> "1" P : subject
+ SR "0..*" --> "1" P : subject
+}
+package "National systems — external identifiers and services" {
+ class "NHI" as NHI #A8DCF0 { national patient identifier }
+ class "HPI" as HPI #A8DCF0 { provider / organisation identifiers }
+ class "NES" as NES #A8DCF0 { enrolment information }
+ class "AIR" as AIR #A8DCF0 { immunisation information }
+}
+P ..[#3E9EC9]> NHI : identifier[NHI]
+PR ..[#3E9EC9]> HPI : identifiers
+P ..[#3E9EC9]> NES : lookup by NHI (integration, not FHIR Reference)
+P ..[#3E9EC9]> AIR : lookup by NHI (integration, not FHIR Reference)
+note bottom of PD
+Orchestrator applies the definition to create
+CarePlan/Tasks; this is a process dependency,
+not automatically a stored FHIR reference.
+end note
+note bottom of T
+Consent, family forms, and vision/hearing
+may progress independently. Nurse evaluation
+is the final clinical completion gate.
+end note
+@enduml

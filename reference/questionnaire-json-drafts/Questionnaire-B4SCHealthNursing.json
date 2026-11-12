@@ -1,0 +1,82 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "B4SCHealthNursing",
+  "status": "draft",
+  "item": [
+    {
+      "linkId": "B4SCHealthNursing-section",
+      "text": "B4SC Health History and Nursing Assessment",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "family-history",
+          "text": "Child health and family history",
+          "type": "text"
+        },
+        {
+          "linkId": "allergies",
+          "text": "Allergies",
+          "type": "text"
+        },
+        {
+          "linkId": "medications",
+          "text": "Current medications",
+          "type": "text"
+        },
+        {
+          "linkId": "immunisation-history",
+          "text": "Immunisation history or concerns",
+          "type": "text"
+        },
+        {
+          "linkId": "dental-concerns",
+          "text": "Dental or oral health concerns",
+          "type": "text"
+        },
+        {
+          "linkId": "vision-hearing-concerns",
+          "text": "Vision or hearing concerns",
+          "type": "text"
+        },
+        {
+          "linkId": "development-support",
+          "text": "Development or support needs",
+          "type": "text"
+        },
+        {
+          "linkId": "sleep-eating-toileting",
+          "text": "Sleep, eating or toileting concerns",
+          "type": "text"
+        },
+        {
+          "linkId": "whanau-concerns",
+          "text": "Other whānau concerns",
+          "type": "text"
+        },
+        {
+          "linkId": "height",
+          "text": "Height in centimetres",
+          "type": "decimal"
+        },
+        {
+          "linkId": "weight",
+          "text": "Weight in kilograms",
+          "type": "decimal"
+        },
+        {
+          "linkId": "nurse-findings",
+          "text": "Nursing assessment findings",
+          "type": "text"
+        },
+        {
+          "linkId": "advice-follow-up",
+          "text": "Advice and follow-up",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "name": "B4SCHealthNursing",
+  "title": "B4SC Health History and Nursing Assessment",
+  "description": "Whānau history followed by nurse clinical assessment"
+}

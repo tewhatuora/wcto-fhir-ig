@@ -1,30 +1,21 @@
-{% include wcto-style.html %}
+<link rel="stylesheet" href="assets/css/wcto.css">
 
-### People and Organisations
 
-| Actor | Role |
+## Human actors
+
+| Actor | Proposed participation |
 |---|---|
-| Child | Subject of the WCTO contact and assessment information |
-| Parent / caregiver / whānau | Provides information, consent and selected responses |
-| WCTO nurse | Reviews whānau information and completes clinical assessment components |
-| Vision and Hearing Technician | Completes Vision and Hearing Assessment and may participate in consent finalisation |
-| ECE educator / teacher | Completes SDQ Teacher/ECE where applicable |
-| Coordinator | Supports due-list visibility, assignment/reassignment and cross-provider coordination |
-| WCTO provider organisation | Delivers WCTO services and local workflows |
-| Other authorised clinicians | May access completed forms or summaries where permitted |
+| Child / tamariki | Subject of the B4SC assessment and CarePlan |
+| Whānau / caregiver | Provides consent and family assessment information |
+| B4SC coordinator | Reviews nominations, provider assignment, form status and follow-up |
+| Nurse / clinician | Reviews family contributions, completes clinical evaluation and determines clinical completion |
+| Vision and Hearing provider | Records screening activity and results |
+| ECE / teacher | May provide educator questionnaire information where required |
 
-### Systems and Capabilities
+## System actors
 
-| System / capability | Role |
-|---|---|
-| Eligibility / cohorting capability | Identifies children approaching a WCTO contact; implementation remains to be confirmed |
-| Coordinator capability | Supports coordination and provider assignment; final product/application remains to be confirmed |
-| Provider PMS / EMR | Provider workflow and integration with WCTO services |
-| Consumer / clinical portal | Authenticated form access or summary viewing where supported |
-| Invitation channel | Controlled unauthenticated links via email, SMS or another approved mechanism |
-| National Data Services | NHI, NES, AIR and HPI |
-| WCTO Schedule API | Due, assignment and status information |
-| Magic Link API | Launches the relevant form |
-| WCTO Summary API | Completed forms and summaries |
+Cohorts, Scheduler, Coordinator application, PMS/EMR, national services, FHIR forms, shared FHIR server, Magic Link API and Summary API are described in [Solution Overview](solution-overview.html).
 
-> **To be confirmed:** ECE author representation and the final workflow resource used by the Schedule API.
+## Security design boundary
+
+A person receiving a form URL does not, by itself, establish that the person is authorised to access the child's health information. Authentication, consent, authorisation, link expiry, audit and relationship verification require a confirmed threat model and access design. No particular login method is prescribed here.

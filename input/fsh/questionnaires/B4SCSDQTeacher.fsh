@@ -1,0 +1,56 @@
+// DRAFT — clinical, licensing, and renderer review required.
+Instance: B4SCSDQTeacher
+InstanceOf: Questionnaire
+Usage: #definition
+* status = #draft
+* name = "B4SCSDQTeacher"
+* title = "B4SC SDQ — Teacher / early childhood educator"
+* description = "Operational wrapper only; licensed SDQ questions, scoring, and thresholds are not reproduced."
+* item[0].linkId = "administration"
+* item[0].text = "Assessment administration"
+* item[0].type = #group
+* item[0].item[0].linkId = "respondent-name"
+* item[0].item[0].text = "Teacher / early childhood educator name"
+* item[0].item[0].type = #string
+* item[0].item[1].linkId = "respondent-role"
+* item[0].item[1].text = "Relationship to child / role"
+* item[0].item[1].type = #string
+* item[0].item[2].linkId = "completion-date"
+* item[0].item[2].text = "Date completed"
+* item[0].item[2].type = #date
+* item[0].item[3].linkId = "assessment-version"
+* item[0].item[3].text = "Approved SDQ form version"
+* item[0].item[3].type = #string
+* item[0].item[4].linkId = "licensed-assessment-reference"
+* item[0].item[4].text = "Reference to completed licensed SDQ assessment"
+* item[0].item[4].type = #string
+* item[0].item[5].linkId = "respondent-comments"
+* item[0].item[5].text = "Respondent comments"
+* item[0].item[5].type = #text
+* item[1].linkId = "clinical-review"
+* item[1].text = "Nurse review and outcomes"
+* item[1].type = #group
+* item[1].item[0].linkId = "reviewer"
+* item[1].item[0].text = "Reviewing nurse"
+* item[1].item[0].type = #string
+* item[1].item[1].linkId = "review-date"
+* item[1].item[1].text = "Date reviewed"
+* item[1].item[1].type = #date
+* item[1].item[2].linkId = "scoring-reference"
+* item[1].item[2].text = "Reference to approved SDQ scoring output"
+* item[1].item[2].type = #string
+* item[1].item[3].linkId = "outcome-summary"
+* item[1].item[3].text = "Clinical interpretation summary"
+* item[1].item[3].type = #text
+* item[1].item[4].linkId = "review-status"
+* item[1].item[4].text = "Review status"
+* item[1].item[4].type = #choice
+* item[1].item[4].answerOption[0].valueCoding.code = #pending
+* item[1].item[4].answerOption[0].valueCoding.display = "Pending"
+* item[1].item[4].answerOption[1].valueCoding.code = #reviewed
+* item[1].item[4].answerOption[1].valueCoding.display = "Reviewed"
+* item[1].item[4].answerOption[2].valueCoding.code = #follow-up
+* item[1].item[4].answerOption[2].valueCoding.display = "Follow-up required"
+* item[1].item[5].linkId = "follow-up"
+* item[1].item[5].text = "Follow-up or referral notes"
+* item[1].item[5].type = #text

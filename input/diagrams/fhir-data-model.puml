@@ -1,0 +1,182 @@
+@startuml
+' WCTO / B4SC FHIR resource data model - corrected DRAFT
+' SOURCE LOCATION: <repo>/diagrams/fhir-data-model.puml
+' RENDER OUTPUT: <repo>/input/images/wcto-fhir-data-model.svg
+' Replaces the earlier conceptual diagram; NOT a validated profile specification.
+' Confirm all links and cardinalities against the repository FSH and FHIR R4B.
+left to right direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam class { BorderColor #6B8299; ArrowColor #51758F }
+hide empty methods
+hide circle
+
+package "National / external authoritative sources" #E9F3FC {
+  class "NHI\nidentity" as NHI #D8ECFC
+  class "NES\nenrolment" as NES #D8ECFC
+  class "HPI\nworkforce and organisation" as HPI #D8ECFC
+  class "AIR\nimmunisation" as AIR #D8ECFC
+  class "PMS / EMR\nexisting clinical information" as PMS #D8ECFC
+}
+
+package "People and provider context" #EAF8F6 {
+  class "Patient\n(NZ Base where applicable)" as Patient #D9F0FA {
+    identifier (NHI)
+    name / birthDate
+  }
+  class "RelatedPerson" as RelatedPerson #E4E0FF {
+    patient
+    relationship
+  }
+  class "Practitioner" as Practitioner #D9F0FA {
+    identifier (HPI where available)
+  }
+  class "PractitionerRole" as PractitionerRole #D9F0FA {
+    practitioner
+    organization
+    code
+  }
+  class "Organization" as Organization #D9F0FA {
+    identifier (HPI where applicable)
+  }
+  class "CareTeam" as CareTeam #E4E0FF {
+    subject
+    participant
+  }
+}
+
+package "WCTO / B4SC workflow" #FFF3E5 {
+  class "B4SC PlanDefinition\n(workflow template)" as PlanDefinition #FCE5CA {
+    url / version
+    action
+  }
+  class "WCTO B4SC CarePlan\n(profile)" as CarePlan #FBD9AF {
+    subject
+    status
+    intent
+    category
+    careTeam
+  }
+  class "WCTO B4SC Task\n(profile)" as Task #E9DFFF {
+    basedOn
+    for
+    status
+    businessStatus
+    owner
+    focus / output (where defined)
+  }
+  class "ServiceRequest\n(referral, if adopted)" as ServiceRequest #DDF4EB {
+    subject
+    reasonCode / reasonReference
+    status
+  }
+  class "Consent\n(if adopted as resource)" as Consent #DDF4EB {
+    patient
+    performer
+    status
+  }
+}
+
+package "Forms, provenance and clinical data" #F0F8FF {
+  class "Questionnaire\n(per form definition)" as Questionnaire #D8ECFC {
+    url / version
+    item.linkId
+  }
+  class "QuestionnaireResponse\n(per captured contribution)" as QR #D8ECFC {
+    questionnaire (canonical)
+    subject
+    author / source
+    authored
+    status
+    item / answer
+    meta.versionId (server-managed)
+  }
+  class "Provenance\n(review / amendment events)" as Provenance #E4E0FF {
+    target
+    recorded
+    agent
+    activity
+  }
+  class "Observation\n(selected extracted findings)" as Observation #DDF4EB
+  class "Condition\n(if clinically reconciled)" as Condition #DDF4EB
+  class "AllergyIntolerance\n(if clinically reconciled)" as Allergy #DDF4EB
+  class "MedicationStatement\n(if clinically reconciled)" as Medication #DDF4EB
+  class "Immunization\n(AIR sourced)" as Immunization #DDF4EB
+  class "DocumentReference\n(summary / PDF where adopted)" as DocRef #DDF4EB
+  class "Composition\n(structured document where adopted)" as Composition #DDF4EB
+}
+
+RelatedPerson --> Patient : patient
+PractitionerRole --> Practitioner : practitioner
+PractitionerRole --> Organization : organization
+CareTeam --> Patient : subject
+CareTeam ..> PractitionerRole : participant (as supported)
+CarePlan --> Patient : subject
+CarePlan ..> CareTeam : careTeam
+Task --> CarePlan : basedOn (agreed design)
+Task --> Patient : for
+Task ..> PractitionerRole : owner (where used)
+Task ..> QR : focus / output\n(implementation mapping TBD)
+PlanDefinition ..> Task : workflow orchestration\ncreates tasks (application logic)
+PlanDefinition ..> CarePlan : applied by orchestration\n(not a direct reference)
+QR --> Questionnaire : questionnaire (canonical)
+QR --> Patient : subject
+QR ..> RelatedPerson : author / source\n(where appropriate)
+QR ..> Practitioner : author / source\n(where appropriate)
+Provenance --> QR : target
+Provenance ..> Practitioner : agent (example)
+Provenance ..> RelatedPerson : agent (example)
+QR ..> Observation : extraction, only if mapped
+QR ..> Condition : reconciliation, if required
+QR ..> Allergy : reconciliation, if required
+QR ..> Medication : reconciliation, if required
+ServiceRequest --> Patient : subject
+Task ..> ServiceRequest : focus / basedOn as designed
+Consent --> Patient : patient
+DocRef --> Patient : subject
+Composition --> Patient : subject
+NHI ..> Patient : authoritative identity
+NES ..> Patient : enrolment lookup (not ownership)
+HPI ..> PractitionerRole : authoritative role context
+HPI ..> Organization : authoritative organisation
+AIR ..> Immunization : authoritative source
+PMS ..> Condition : existing clinical context\nif authorised
+
+note bottom of Task
+  Business workflow (not native Task.status codes):
+  Whanau forms, consent and vision/hearing may
+  progress concurrently, in any order.
+  Nurse evaluation is the final clinical gate.
+  Task.status uses valid FHIR codes; finer
+  stages use businessStatus / application rules.
+end note
+note bottom of QR
+  QuestionnaireResponse.status reflects response state,
+  NOT overall B4SC completion or nurse sign-off.
+  Preserve original submissions; use Provenance
+  and server version history where supported.
+  Do not invent QuestionnaireResponse.version.
+end note
+note bottom of PlanDefinition
+  The diagram is a candidate architecture.
+  No unsupported fixed cardinalities are asserted.
+  Confirm all FSH constraints and data mapping
+  before publishing as normative.
+end note
+
+legend bottom
+|= Colour |= Meaning |
+|<#D8ECFC> | Identity / form definition and response |
+|<#FBD9AF> | WCTO workflow resource |
+|<#E9DFFF> | Supporting workflow / provenance / participant |
+|<#DDF4EB> | Clinical resource / output (when adopted) |
+|<#D8ECFC> | National source shown in external package |
+Solid arrow: candidate FHIR reference where supported
+Dotted arrow: conditional / conceptual mapping or orchestration
+endlegend
+@enduml

@@ -1,0 +1,146 @@
+{
+  "resourceType": "Bundle",
+  "id": "wcto-initial-transaction",
+  "entry": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "CarePlan",
+        "ifNoneExist": "identifier=https%3A%2F%2Fexample.org%2Fwcto%2Fepisode%7Cb4sc-child-001"
+      },
+      "fullUrl": "urn:uuid:bd8dd15e-f945-512f-adcc-0a872bc98504",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "WCTOInitialPlan",
+        "meta": {
+          "profile": [
+            "https://fhir-ig.digital.health.nz/wcto/StructureDefinition/wcto-b4sc-careplan"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://example.org/wcto/episode",
+            "value": "b4sc-child-001"
+          }
+        ],
+        "instantiatesCanonical": [
+          "https://fhir-ig.digital.health.nz/wcto/PlanDefinition/wcto-b4sc-template|0.1.17"
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-programme-code",
+                "code": "b4sc"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/child-001"
+        },
+        "author": {
+          "reference": "Organization/provider-001"
+        },
+        "activity": [
+          {
+            "reference": {
+              "reference": "urn:uuid:7632c190-8d52-550a-9510-2de7315eebea"
+            }
+          },
+          {
+            "reference": {
+              "reference": "urn:uuid:314af38c-4b47-5f78-9396-088d4114d211"
+            }
+          }
+        ],
+        "status": "active",
+        "intent": "plan",
+        "title": "Synthetic B4SC programme episode"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "Task",
+        "ifNoneExist": "identifier=https%3A%2F%2Fexample.org%2Fwcto%2Ftask%7Cb4sc-child-001%3Aconsent-capture-001"
+      },
+      "fullUrl": "urn:uuid:7632c190-8d52-550a-9510-2de7315eebea",
+      "resource": {
+        "resourceType": "Task",
+        "id": "WCTOInitialCapture",
+        "meta": {
+          "profile": [
+            "https://fhir-ig.digital.health.nz/wcto/StructureDefinition/wcto-b4sc-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://example.org/wcto/task",
+            "value": "b4sc-child-001:consent-capture-001"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-work-code",
+              "code": "consent-capture"
+            }
+          ]
+        },
+        "for": {
+          "reference": "Patient/child-001"
+        },
+        "owner": {
+          "reference": "Organization/provider-001"
+        },
+        "status": "ready",
+        "intent": "order",
+        "authoredOn": "2026-11-06T10:00:00Z",
+        "lastModified": "2026-11-06T10:00:00Z"
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "Task",
+        "ifNoneExist": "identifier=https%3A%2F%2Fexample.org%2Fwcto%2Ftask%7Cb4sc-child-001%3Aconsent-review-001"
+      },
+      "fullUrl": "urn:uuid:314af38c-4b47-5f78-9396-088d4114d211",
+      "resource": {
+        "resourceType": "Task",
+        "id": "WCTOInitialReview",
+        "meta": {
+          "profile": [
+            "https://fhir-ig.digital.health.nz/wcto/StructureDefinition/wcto-b4sc-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://example.org/wcto/task",
+            "value": "b4sc-child-001:consent-review-001"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-work-code",
+              "code": "consent-review"
+            }
+          ]
+        },
+        "for": {
+          "reference": "Patient/child-001"
+        },
+        "owner": {
+          "reference": "Organization/provider-001"
+        },
+        "status": "requested",
+        "intent": "order",
+        "authoredOn": "2026-11-06T10:00:00Z",
+        "lastModified": "2026-11-06T10:00:00Z"
+      }
+    }
+  ],
+  "type": "transaction"
+}

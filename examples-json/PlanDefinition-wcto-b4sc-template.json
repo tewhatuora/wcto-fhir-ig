@@ -1,0 +1,137 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "wcto-b4sc-template",
+  "url": "https://fhir-ig.digital.health.nz/wcto/PlanDefinition/wcto-b4sc-template",
+  "action": [
+    {
+      "code": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-work-code",
+              "code": "consent-review"
+            }
+          ]
+        }
+      ],
+      "id": "consent",
+      "title": "Review consent",
+      "description": "Reviewed consent decision permits the next assessment actions."
+    },
+    {
+      "code": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-work-code",
+              "code": "family-group"
+            }
+          ]
+        }
+      ],
+      "relatedAction": [
+        {
+          "actionId": "consent",
+          "relationship": "after-end"
+        }
+      ],
+      "id": "family",
+      "title": "Family contributions",
+      "description": "Reviewed consent permits family contribution work."
+    },
+    {
+      "code": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-work-code",
+              "code": "vision-hearing"
+            }
+          ]
+        }
+      ],
+      "relatedAction": [
+        {
+          "actionId": "consent",
+          "relationship": "after-end"
+        }
+      ],
+      "id": "vision-hearing",
+      "title": "Vision and hearing",
+      "description": "Reviewed consent permits screening."
+    },
+    {
+      "code": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-work-code",
+              "code": "nursing-assessment"
+            }
+          ]
+        }
+      ],
+      "relatedAction": [
+        {
+          "actionId": "family",
+          "relationship": "after-end"
+        },
+        {
+          "actionId": "vision-hearing",
+          "relationship": "after-end"
+        }
+      ],
+      "id": "nursing",
+      "title": "Nursing assessment",
+      "description": "Final sign-off requires accepted family and vision/hearing evidence; provisional rule."
+    },
+    {
+      "code": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-work-code",
+              "code": "referral-follow-up"
+            }
+          ]
+        }
+      ],
+      "relatedAction": [
+        {
+          "actionId": "nursing",
+          "relationship": "after-end"
+        }
+      ],
+      "id": "referrals",
+      "title": "Conditional referral follow-up",
+      "description": "Only where an authorised decision requires referral follow-up; early referral remains possible."
+    },
+    {
+      "code": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir-ig.digital.health.nz/wcto/CodeSystem/wcto-work-code",
+              "code": "clinical-summary"
+            }
+          ]
+        }
+      ],
+      "relatedAction": [
+        {
+          "actionId": "nursing",
+          "relationship": "after-end"
+        }
+      ],
+      "id": "summaries",
+      "title": "Audience-specific summaries",
+      "description": "Required forms and evaluations complete. Referral progress does not block summary generation."
+    }
+  ],
+  "version": "0.1.17",
+  "name": "WCTOB4SCIllustrativeTemplate",
+  "title": "WCTO B4SC illustrative programme template",
+  "status": "draft",
+  "experimental": true,
+  "description": "High-level action skeleton for design review. No executable conditions, clinical scoring, full T01–T20 action set or $apply implementation is supplied."
+}

@@ -1,0 +1,53 @@
+// DRAFT — clinical, licensing, and renderer review required.
+Instance: B4SCPEDSR
+InstanceOf: Questionnaire
+Usage: #definition
+* status = #draft
+* name = "B4SCPEDSR"
+* title = "B4SC PEDS-R — administration and clinical review"
+* description = "Operational wrapper only; licensed PEDS-R items and scoring are not reproduced."
+* item[0].linkId = "administration"
+* item[0].text = "Assessment administration"
+* item[0].type = #group
+* item[0].item[0].linkId = "completed-by"
+* item[0].item[0].text = "Parent or caregiver name"
+* item[0].item[0].type = #string
+* item[0].item[1].linkId = "completed-date"
+* item[0].item[1].text = "Date completed"
+* item[0].item[1].type = #date
+* item[0].item[2].linkId = "assessment-version"
+* item[0].item[2].text = "Approved PEDS-R form version"
+* item[0].item[2].type = #string
+* item[0].item[3].linkId = "licensed-form-reference"
+* item[0].item[3].text = "Reference to licensed completed PEDS-R assessment"
+* item[0].item[3].type = #string
+* item[0].item[4].linkId = "parent-comments"
+* item[0].item[4].text = "Additional parent or caregiver comments"
+* item[0].item[4].type = #text
+* item[1].linkId = "clinical-review"
+* item[1].text = "Nurse review"
+* item[1].type = #group
+* item[1].item[0].linkId = "reviewer"
+* item[1].item[0].text = "Reviewing nurse"
+* item[1].item[0].type = #string
+* item[1].item[1].linkId = "review-date"
+* item[1].item[1].text = "Date reviewed"
+* item[1].item[1].type = #date
+* item[1].item[2].linkId = "concerns-summary"
+* item[1].item[2].text = "Developmental concerns summary"
+* item[1].item[2].type = #text
+* item[1].item[3].linkId = "pathway"
+* item[1].item[3].text = "Clinician-recorded PEDS-R pathway (approved terminology pending)"
+* item[1].item[3].type = #string
+* item[1].item[4].linkId = "review-status"
+* item[1].item[4].text = "Review status"
+* item[1].item[4].type = #choice
+* item[1].item[4].answerOption[0].valueCoding.code = #pending
+* item[1].item[4].answerOption[0].valueCoding.display = "Pending"
+* item[1].item[4].answerOption[1].valueCoding.code = #reviewed
+* item[1].item[4].answerOption[1].valueCoding.display = "Reviewed"
+* item[1].item[4].answerOption[2].valueCoding.code = #follow-up
+* item[1].item[4].answerOption[2].valueCoding.display = "Follow-up required"
+* item[1].item[5].linkId = "follow-up"
+* item[1].item[5].text = "Follow-up action or referral notes"
+* item[1].item[5].type = #text

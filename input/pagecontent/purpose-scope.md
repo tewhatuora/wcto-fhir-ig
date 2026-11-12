@@ -1,29 +1,40 @@
-{% include wcto-style.html %}
+<link rel="stylesheet" href="assets/css/wcto.css">
 
-### Purpose
+# Purpose and Scope
 
-This guide describes the national digital services, WCTO digital services, integration patterns, FHIR forms, information models and summary services proposed to support WCTO delivery.
+## Purpose
 
-### Scope
+WCTO Digital Services supports child health contacts through reusable APIs, structured assessments and coordinated workflows. **Before School Check (B4SC)** is the initial use case.
 
-The WCTO Digital Services capability is intended to support multiple WCTO contacts through reusable APIs and FHIR forms. The initial implementation is **WCTO Core Contact 8 – Before School Check (B4SC)**.
+## Scope
 
-### Initial Scope
+### Initial B4SC scope
 
-| Area | Included |
-|---|---|
-| Existing National APIs | NHI, NES, AIR and HPI |
-| New WCTO APIs | Magic Link API, WCTO Schedule API and WCTO Summary API |
-| FHIR forms | Consent; Health History and Nursing Assessment; PEDS-R; SDQ Parent; SDQ Teacher/ECE; Vision and Hearing Assessment |
-| Summaries | Completed individual forms, Clinical B4SC Summary and Whānau B4SC Summary |
-| Integration patterns | Authenticated and controlled unauthenticated access, information population, multi-author completion, status updates and summaries |
+- Identify children approaching age four and re-evaluate changes in eligibility. **Cohort source and update mechanism are to be confirmed.**
+- Create or reuse a B4SC CarePlan and track work using Tasks.
+- Support coordinator and PMS/EMR scheduling, assignment and progress views.
+- Capture forms, clinical and whānau summaries, and referral follow-up.
 
-### Boundaries
+### Existing national data services
 
-This guide does **not** reproduce detailed specifications belonging to existing National APIs. Detailed questionnaire content, terminology, validation, scoring, profiles, extensions, security and conformance requirements will be added as design is confirmed.
+- [National Health Index (NHI) API](https://fhir-ig.digital.health.nz/nhi/): child identity and demographics.
+- [National Enrolment Service (NES) API](https://fhir-ig.digital.health.nz/nes/): enrolment and nomination where supported.
+- [Aotearoa Immunisation Register (AIR)](https://fhir-ig.digital.health.nz/air/): immunisation information.
+- [Health Provider Index (HPI) API](https://fhir-ig.digital.health.nz/hpi/): provider and organisation identity.
 
-External booking and end-to-end referral workflow management are not defined here. Referral information may be recorded and surfaced; the boundary between recording a referral and managing follow-up remains to be confirmed.
+National API links must be checked against the approved published specifications before release.
 
-### Future Reuse
+### Proposed WCTO digital services
 
-Services and reusable form components should not be unnecessarily constrained to B4SC where they may support other WCTO contacts or child health workflows.
+- [WCTO Schedule API](apis.html#schedule-api): due dates, status and progress.
+- [Magic Link API](apis.html#magic-link-api): authorised form launch on request.
+- [WCTO Summary API](apis.html#summary-api): clinical and whānau summaries.
+- [Scheduler and Coordinator workflow](b4sc-workflow.html): orchestration, assignment and follow-up.
+
+### Forms and consumers
+
+See the [single form catalogue](forms.html) and [B4SC workflow](b4sc-workflow.html). PMS/EMR systems and authorised coordinator users are proposed consumers.
+
+### Scope boundaries
+
+Clinical content, licences, API contracts, security controls and deployment ownership require confirmation. Snowflake reporting and school outcome sharing are future integrations, not initial deliverables.

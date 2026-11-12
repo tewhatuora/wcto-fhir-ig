@@ -1,0 +1,17 @@
+/* WCTO presentation overrides: include after template CSS */
+#ig-content table:not(.grid) {width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;table-layout:auto;font-size:.94rem}
+#ig-content table:not(.grid) th {background:#20436f;color:white;text-align:left;padding:.65rem .8rem;border:1px solid #ccd5df}
+#ig-content table:not(.grid) td {padding:.58rem .8rem;border:1px solid #ccd5df;vertical-align:top;overflow-wrap:anywhere}
+#ig-content table:not(.grid) tbody tr:nth-child(even){background:#f3f7fa}
+#ig-content table:not(.grid) a{display:inline-block;margin:.1rem .15rem .1rem 0}
+#ig-content h2,#ig-content h3{clear:both;margin-top:1.55rem;margin-bottom:.55rem}
+#ig-content p{margin:.45rem 0 .85rem;line-height:1.5}
+#ig-content ul,#ig-content ol{padding-left:1.65rem;margin:.5rem 0 1rem}
+#ig-content li{margin:.22rem 0}
+#ig-content .wcto-section{display:flow-root;clear:both;width:100%;margin:1.25rem 0 1.8rem}
+#ig-content .wcto-diagram{display:block;clear:both;max-width:100%;margin:1rem auto 1.3rem;text-align:center}
+#ig-content .wcto-diagram img{display:block;max-width:100%;height:auto;max-height:620px;object-fit:contain;margin:auto}
+#ig-content .wcto-diagram figcaption{font-size:.85rem;color:#506278;margin-top:.5rem}
+#ig-content .wcto-section + .wcto-section{margin-top:1.8rem}
+#ig-content .wcto-diagram + h2,#ig-content .wcto-diagram + h3{clear:both}
+@media(max-width:750px){#ig-content table{display:block;overflow-x:auto}#ig-content .wcto-diagram img{max-height:none}}
