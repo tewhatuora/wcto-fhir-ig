@@ -3,7 +3,11 @@ skinparam backgroundColor white
 skinparam shadowing false
 skinparam defaultFontName Arial
 skinparam defaultFontSize 11
-skinparam class { BackgroundColor #F6F8FB; BorderColor #748DA7; ArrowColor #527A9C }
+skinparam class {
+ BackgroundColor #F6F8FB
+ BorderColor #748DA7
+ ArrowColor #527A9C
+}
 hide empty methods
 package "WCTO / B4SC FHIR boundary" {
  class "WCTOB4SCCarePlan\n«CarePlan profile»" as CP #F8DCCF {

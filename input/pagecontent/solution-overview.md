@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 # Solution Overview
 
@@ -22,4 +22,6 @@ WCTO provides a reusable service layer for child health contacts. The B4SC use c
 
 The diagram introduces system responsibilities; it does not imply that every connection is a direct approved API call. See [Architecture and Data Model](architecture.html) for resource relationships, [B4SC Workflow](b4sc-workflow.html) for sequence and [API Contracts](apis.html) for interface detail.
 
-![WCTO logical service relationships](wcto-logical.svg)
+![Draft Early Years integration architecture](early-years-integration-reference.png)
+
+This reference view is illustrative and does not define approved interfaces or deployment boundaries.

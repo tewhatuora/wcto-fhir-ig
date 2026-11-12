@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 This page explains **how WCTO components fit together** and directs implementers to the single authoritative definition for each technical detail. Element cardinalities and FHIR constraints are maintained in [Profiles](profiles.html), not repeated here.
 

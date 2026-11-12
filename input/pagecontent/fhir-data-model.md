@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 ## WCTO / B4SC Data Model Overview
 
@@ -6,7 +6,9 @@ The following diagram provides a conceptual overview of
 the WCTO and B4SC FHIR resources, clinical information
 domains, authorship, and workflow lifecycle.
 
-![WCTO B4SC Data Model](wcto-fhir-data-model-overview.png)
+<figure class="wcto-diagram">
+  <img src="wcto-fhir-data-model-overview.png" alt="WCTO / B4SC FHIR data model overview">
+</figure>
 
 **Note:** This is a conceptual illustration.
 The detailed FHIR resource relationships and
@@ -16,13 +18,11 @@ cardinalities are defined in the technical data model.
 
 ## Resource diagram
 
-The editable source is `diagrams/fhir-data-model.puml`. Render it to `input/images/wcto-fhir-data-model.svg` before enabling the image below.
+The following focused diagram complements the overview above. Its editable source is `diagrams/fhir-data-model.puml`. The detailed proposed relationships and cardinalities are shown in the [B4SC FHIR data model](b4sc-data-model.html).
 
-<!-- Uncomment after the SVG has been generated:
-![WCTO / B4SC FHIR resource model](wcto-fhir-data-model.svg)
--->
-
-The resource model separates external authoritative information, people/provider context, WCTO workflow, and clinical information.
+<figure class="wcto-diagram">
+  <img src="wcto-fhir-data-model.svg" alt="WCTO / B4SC FHIR resource relationships">
+</figure>
 
 ## Important relationship corrections
 

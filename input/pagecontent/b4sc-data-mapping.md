@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 # B4SC Business-to-FHIR Data Mapping
 
@@ -26,6 +26,12 @@
 - If vision or hearing screening is incomplete, capture an agreed reason and follow-up decision.
 - Where whānau answers are amended by a clinician, retain attribution and original contribution.
 - Consent, whānau forms and Vision/Hearing have **no mandatory order**; Nurse Evaluation is the final clinical gate.
+
+## FHIR resource relationships
+
+The following diagram provides context for the candidate resource mappings; it does not make the proposed mappings authoritative.
+
+![B4SC FHIR resource relationships](b4sc-resources.svg)
 
 ## Form mapping worksheet
 

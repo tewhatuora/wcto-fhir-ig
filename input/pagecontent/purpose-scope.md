@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 # Purpose and Scope
 

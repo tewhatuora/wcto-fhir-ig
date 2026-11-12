@@ -1,14 +1,14 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 # B4SC FHIR Data Model — UML and bounded contexts
 
-This page implements the [Health NZ FHIR API Standard: FHIR data model](https://apistandards.digital.health.nz/fhir-api-standard/) recommendation. It is a **proposed** UML 2.0 class model. The editable, version-controlled PlantUML source is `input/images/b4sc-fhir-data-model.puml`. Render the diagram as SVG using PlantUML before publishing. The existing [resource diagram](data-model.html) remains available as a simpler overview.
+This page implements the [Health NZ FHIR API Standard: FHIR data model](https://apistandards.digital.health.nz/fhir-api-standard/) recommendation. It is a **proposed** UML 2.0 class model. The editable, version-controlled PlantUML source is `input/images/b4sc-fhir-data-model.puml`, with the rendered SVG included below. The existing [resource diagram](data-model.html) remains available as a simpler overview.
 
 ## One-page model
 
 The model distinguishes **salmon** proposed profiled resources, **orange** shared canonical definitions, **white** standard FHIR resources, and **blue** logical external records. Solid arrows represent resource references; dashed blue arrows represent external identifier/integration relationships. The model explicitly shows resource references, important data elements and proposed cardinalities.
 
-**Note:** No rendered diagram is bundled here because PlantUML rendering has not been run. Render `input/images/b4sc-fhir-data-model.puml` to `input/images/b4sc-fhir-data-model.svg`, then embed the SVG here after visual review.
+![Proposed B4SC FHIR resource model](b4sc-fhir-data-model.svg)
 
 ## Model boundaries and design decisions
 

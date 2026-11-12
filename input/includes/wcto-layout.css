@@ -10,7 +10,7 @@
 #ig-content li{margin:.22rem 0}
 #ig-content .wcto-section{display:flow-root;clear:both;width:100%;margin:1.25rem 0 1.8rem}
 #ig-content .wcto-diagram{display:block;clear:both;max-width:100%;margin:1rem auto 1.3rem;text-align:center}
-#ig-content .wcto-diagram img{display:block;max-width:100%;height:auto;max-height:620px;object-fit:contain;margin:auto}
+#ig-content .wcto-diagram img{display:block;float:none;clear:both;max-width:100%;height:auto;max-height:620px;object-fit:contain;margin:auto}
 #ig-content .wcto-diagram figcaption{font-size:.85rem;color:#506278;margin-top:.5rem}
 #ig-content .wcto-section + .wcto-section{margin-top:1.8rem}
 #ig-content .wcto-diagram + h2,#ig-content .wcto-diagram + h3{clear:both}

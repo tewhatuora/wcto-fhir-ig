@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 # Well Child Tamariki Ora (WCTO) FHIR Implementation Guide
 
@@ -36,6 +36,8 @@ B4SC uses a **single B4SC CarePlan per child** for the B4SC use case, with multi
 | Assess | Nurse reviews contributions and records clinical findings | QuestionnaireResponse, Observation where mapped, Task |
 | Complete | Nurse Evaluation confirms clinical completion | CarePlan and Task state, assessment outcomes |
 | Share and follow up | Clinical and whānau summaries are generated; referrals and follow-up are tracked | DocumentReference / Composition where adopted, ServiceRequest and Task where appropriate |
+
+![B4SC workflow](b4sc-flow.svg)
 
 For the sequence, exceptions, task automation, and completion rules, see the [B4SC workflow](b4sc.html).
 

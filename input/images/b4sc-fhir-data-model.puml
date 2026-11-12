@@ -103,10 +103,18 @@ package "WCTO / B4SC bounded context — shared FHIR server" {
  SR "0..*" --> "1" P : subject
 }
 package "National systems — external identifiers and services" {
- class "NHI" as NHI #A8DCF0 { national patient identifier }
- class "HPI" as HPI #A8DCF0 { provider / organisation identifiers }
- class "NES" as NES #A8DCF0 { enrolment information }
- class "AIR" as AIR #A8DCF0 { immunisation information }
+ class "NHI" as NHI #A8DCF0 {
+  national patient identifier
+ }
+ class "HPI" as HPI #A8DCF0 {
+  provider / organisation identifiers
+ }
+ class "NES" as NES #A8DCF0 {
+  enrolment information
+ }
+ class "AIR" as AIR #A8DCF0 {
+  immunisation information
+ }
 }
 P ..[#3E9EC9]> NHI : identifier[NHI]
 PR ..[#3E9EC9]> HPI : identifiers

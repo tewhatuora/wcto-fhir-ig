@@ -121,13 +121,13 @@ menu:
     WCTO PlanDefinition: StructureDefinition-wcto-plan-definition.html
   Forms:
     Form Catalogue: forms.html
-    Consent: forms.html#consent
-    Whānau Health: forms.html#whanau-health
-    PEDS-R: forms.html#peds-r
-    SDQ Parent: forms.html#sdq-parent
-    SDQ Teacher/ECE: forms.html#sdq-teacherece
-    Vision and Hearing: forms.html#vision-and-hearing
-    Nurse Evaluation: forms.html#nurse-evaluation
+    Consent: Questionnaire-B4SCConsent.html
+    Whānau Health: Questionnaire-B4SCNurseEvaluation.html
+    PEDS-R: Questionnaire-B4SCPEDSR.html
+    SDQ Parent: Questionnaire-B4SCSDQParent.html
+    SDQ Teacher/ECE: Questionnaire-B4SCSDQTeacher.html
+    Vision and Hearing: Questionnaire-B4SCVisionHearing.html
+    Nurse Evaluation: Questionnaire-B4SCNurseEvaluation.html
   Implementation:
     Developer Guide: developer-guide.html
     Versioning and Compatibility: versioning.html

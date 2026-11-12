@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 # Data Population and Security Boundaries
 
@@ -20,6 +20,12 @@
 - Unauthenticated or insufficiently authorised magic-link access must **not** expose protected data through prepopulation. Manual entry may be permitted according to the access model.
 - A magic link itself can act as an access credential: assess its claims, expiry, scope and server-side authorisation before classifying it as unauthenticated.
 - Never assume access to NHI, NES, HPI, AIR or PMS/EMR simply because a user can open a form.
+
+## Draft data-flow reference
+
+This source diagram is a draft reference, not an approved interface or security specification.
+
+![Draft B4SC data flow](b4sc-dfd-reference.png)
 
 ## Design checks
 

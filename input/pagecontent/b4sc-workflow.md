@@ -1,8 +1,16 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 # Before School Check — End-to-End Workflow
 
 This is the B4SC-specific workflow. It begins with identifying a child due for a check, not with consent capture. Detailed FHIR elements are maintained in [Profiles](profiles.html); API contracts are in [APIs](apis.html).
+
+## B4SC Sequence Diagram
+
+The following sequence diagram illustrates the interactions
+between WCTO participants, orchestration services, and
+FHIR resources throughout the B4SC process.
+
+![WCTO B4SC Sequence Diagram](b4sc-sequence-diagram.svg)
 
 ## End-to-end pathway
 

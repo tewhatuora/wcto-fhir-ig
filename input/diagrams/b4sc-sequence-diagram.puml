@@ -1,0 +1,183 @@
+
+@startuml
+title WCTO / Before School Check (B4SC)\nEnd-to-End Sequence Diagram
+
+hide footbox
+autonumber
+
+skinparam backgroundColor #FFFFFF
+skinparam sequence {
+  ArrowColor #20436F
+  LifeLineBorderColor #6D8295
+  LifeLineBackgroundColor #F4F8FB
+  ParticipantBorderColor #20436F
+  ParticipantBackgroundColor #EAF2F8
+  ParticipantFontColor #123C58
+  ActorBorderColor #20436F
+  ActorFontColor #123C58
+  GroupBorderColor #A8BCCB
+  GroupBackgroundColor #F6F9FC
+}
+skinparam NoteBackgroundColor #FFF8E8
+skinparam NoteBorderColor #D4B66A
+
+actor "Whānau" as Family
+actor "Coordinator" as Coordinator
+actor "Vision & Hearing\nProvider" as VH
+actor "Nurse" as Nurse
+
+participant "Cohorts\nService" as Cohorts
+participant "Scheduler /\nOrchestrator" as Scheduler
+participant "Coordinator\nApplication" as App
+participant "Magic Link /\nForms Service" as Forms
+participant "FHIR Platform" as FHIR
+participant "Summary API" as Summary
+
+== 1. Identify Eligible Child ==
+
+Cohorts -> Scheduler: Eligible child identified\n(NHI, eligibility context)
+
+Scheduler -> FHIR: GET CarePlan?subject={NHI}&category={B4SC}
+FHIR --> Scheduler: Existing B4SC CarePlan or none
+
+alt No B4SC CarePlan exists
+    Scheduler -> FHIR: POST CarePlan\n(type=B4SC, status=active)
+    FHIR --> Scheduler: CarePlan ID
+
+    Scheduler -> FHIR: POST Task resources\n(Consent, Forms, V&H, Nurse Evaluation)
+    FHIR --> Scheduler: Task IDs
+else Existing B4SC CarePlan
+    Scheduler -> FHIR: Retrieve existing Tasks
+    FHIR --> Scheduler: Current workflow state
+end
+
+note over Scheduler,FHIR
+One B4SC CarePlan per child.
+Multiple Tasks are associated through
+Task.basedOn referencing the CarePlan.
+
+Creation and duplicate prevention
+must be handled by orchestration.
+end note
+
+== 2. Provider Assignment ==
+
+Coordinator -> App: Review eligible children
+App -> FHIR: GET CarePlan / Task
+FHIR --> App: Current B4SC activities
+
+Coordinator -> App: Assign providers
+App -> FHIR: PATCH Task assignment / ownership
+FHIR --> App: Updated Tasks
+
+== 3. Independent B4SC Activities ==
+
+note over Family,Nurse
+Consent, whānau forms and Vision & Hearing
+may progress in any order or concurrently.
+
+There is no consent-first workflow dependency.
+Applicable consent and clinical safeguards
+must still be enforced.
+end note
+
+par Consent
+    Family -> Forms: Open consent form
+    Forms -> FHIR: GET Questionnaire (Consent)
+    FHIR --> Forms: Questionnaire definition
+    Family -> Forms: Submit consent
+    Forms -> FHIR: POST QuestionnaireResponse
+    FHIR --> Forms: QuestionnaireResponse ID
+    Forms -> Scheduler: Consent submission event
+    Scheduler -> FHIR: Update consent Task\n(subject to review rules)
+
+else Whānau Forms
+    Family -> Forms: Open Health History,\nPEDS-R and SDQ Parent
+    Forms -> FHIR: GET Questionnaire definitions
+    FHIR --> Forms: Form definitions
+    Family -> Forms: Submit responses
+    Forms -> FHIR: POST QuestionnaireResponse(s)
+    FHIR --> Forms: Response IDs
+    Forms -> Scheduler: Form submission event
+    Scheduler -> FHIR: Update relevant Task progress
+
+else Vision and Hearing
+    VH -> App: Open assigned screening activity
+    App -> FHIR: GET screening Task / Questionnaire
+    FHIR --> App: Screening details
+    VH -> App: Record screening outcomes
+    App -> FHIR: POST QuestionnaireResponse\nand approved clinical results
+    FHIR --> App: Saved resources
+    App -> Scheduler: Screening completion event
+    Scheduler -> FHIR: Update V&H Task
+end
+
+== 4. Nurse Review and Evaluation ==
+
+Nurse -> App: Open child B4SC record
+App -> FHIR: GET CarePlan, Tasks,\nQuestionnaireResponses and results
+FHIR --> App: Current clinical information
+
+Nurse -> App: Review consent, whānau forms,\nand screening results
+
+opt Additional information or corrections needed
+    Nurse -> App: Record review / amendment
+    App -> FHIR: Save approved updates\nand Provenance where applicable
+    FHIR --> App: Updated resources
+end
+
+Nurse -> Forms: Complete Nurse Evaluation
+Forms -> FHIR: POST QuestionnaireResponse\n(Nurse Evaluation)
+FHIR --> Forms: Nurse Evaluation response
+
+Forms -> Scheduler: Nurse evaluation submitted
+Scheduler -> FHIR: Retrieve required activity statuses
+FHIR --> Scheduler: Task and review state
+
+alt Required reviews complete and nurse signs off
+    Scheduler -> FHIR: Update Nurse Evaluation Task\nstatus=completed
+    Scheduler -> FHIR: Update CarePlan workflow state\nper agreed completion rules
+    FHIR --> Scheduler: Updated resources
+else Completion requirements not met
+    Scheduler -> FHIR: Retain outstanding Task states
+    FHIR --> Scheduler: B4SC remains incomplete
+end
+
+== 5. Clinical and Whānau Summaries ==
+
+opt B4SC clinically completed
+    Scheduler -> Summary: Generate B4SC summaries\n(CarePlan / child reference)
+    Summary -> FHIR: Retrieve approved clinical information
+    FHIR --> Summary: B4SC results and assessments
+    Summary -> FHIR: Store summary output\n(DocumentReference or agreed model)
+    FHIR --> Summary: Summary references
+    Summary --> App: Clinical and whānau summaries available
+end
+
+== 6. Referrals and Follow-up ==
+
+opt Follow-up or referral required
+    Nurse -> App: Record referral / follow-up
+    App -> FHIR: Create follow-up Task\n(and ServiceRequest if adopted)
+    FHIR --> App: Follow-up references
+
+    App -> Scheduler: Follow-up created
+    Scheduler -> FHIR: Track referral / follow-up status
+
+    note over Scheduler,FHIR
+    Referral follow-up can remain open
+    after clinical B4SC completion.
+
+    CarePlan closure depends on the
+    agreed referral outcome rules.
+    end note
+end
+
+== 7. Workflow Status ==
+
+Coordinator -> App: View B4SC status
+App -> FHIR: GET CarePlan and associated Tasks
+FHIR --> App: Current progress, completion,\nand outstanding follow-up
+App --> Coordinator: Display B4SC status
+
+@enduml

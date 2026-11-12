@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/wcto.css">
+{% include wcto-style.html %}
 
 # Health NZ FHIR API Standards Alignment
 
@@ -30,7 +30,7 @@
 | Canonical business versions/dates | Profiles, terminology and Questionnaire FSH | Draft versions set; validate generated resources |
 | Versioned QuestionnaireResponse references | `versioning.md` | Documented; examples and runtime enforcement pending |
 | Business-to-FHIR mapping | `mapping/*.csv` | Proposed, not approved |
-| UML data model | `input/images/b4sc-fhir-data-model.puml` | Source present; rendering/clinical review pending |
+| UML data model | `input/images/b4sc-fhir-data-model.puml` and `b4sc-fhir-data-model.svg` | Rendered; clinical review pending |
 | CapabilityStatement at `/metadata` | No verified deployed endpoint | Not demonstrated |
 | JSON support | Reference draft JSON files | Server support not demonstrated |
 | Published IG | Local source only | Not demonstrated |
